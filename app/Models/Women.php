@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Women extends Model
 {
     use HasFactory;
+    protected $fillable =[
+        'category',
+        'size',
+        'style',
+        'material',
+        'materialstyle',
+        'colour',
+        'price',
+        'image',
+        'actual_filename',
+        
+    ];
 }

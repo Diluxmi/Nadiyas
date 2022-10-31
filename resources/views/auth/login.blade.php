@@ -5,9 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+            
 
                 <div class="card-body">
+                <div class="row mb-0">
+                <div class="col-md-8 offset-md-4">
+                <a class="navbar-brand" href=""><img src="{{ asset('/images/nadiyas logo.png') }}" class="logo" style="width: 120px; height: 90px;" alt=""></a>
+                    </div>         
+                </br> 
+                <div class="col-md-8 offset-md-4">
+                <h4>Welcome back!</h4>
+              <h6 class="font-weight-light">Happy to see you again!</h6>
+</div>
+</div>
+</br>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

@@ -1,7 +1,10 @@
-<link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Roboto:400,700')}}"/>
-    <!-- https://fonts.google.com/specimen/Roboto -->
-    <link rel="stylesheet" href="{{asset('build/assets/css/fontawesome.min.css')}}"/>
-    <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="{{asset('build/assets/css/bootstrap.min.css')}}" />
-    <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="{{asset('build/assets/css/templatemo-style.css')}}"/>
+<link rel="stylesheet" href="{{asset('new/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('new/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
+    <link rel="stylesheet" href="{{asset('new/assets/vendors/css/vendor.bundle.base.css')}}">
+  
+    <link rel="stylesheet" href="{{asset('new/assets/vendors/jquery-bar-rating/css-stars.css')}}" />
+    <link rel="stylesheet" href="{{asset('new/assets/vendors/font-awesome/css/font-awesome.min.css')}}" />
+    
+    <link rel="stylesheet" href="{{asset('new/assets/css/demo_2/style.css')}}" />
+
+    <link rel="shortcut icon" href="{{asset('new/assets/images/favicon.png')}}" />

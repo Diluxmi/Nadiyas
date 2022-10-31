@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  class="light-style layout-menu-fixed"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+
 
 <head>
 @include('layouts.admin._meta')
@@ -7,23 +14,18 @@
 </head>
 
 
-<body id="reportsPage">
 
+<body>
+  <div class=" container-scroller">
+    <!-- partial:../../partials/_horizontal-navbar.html -->
+        <div class="horizontal-menu">
 
         @include('layouts.admin._header')
         
     <div class="main-panel">
     <div class="content-wrapper pb-0">
 
-    <div class="top-search">
-        <div class="container">
-            <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Search">
-                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
-            </div>
-        </div>
-    </div>
+   
           @yield('content')
           @include('layouts.admin._footer')  
     </div>

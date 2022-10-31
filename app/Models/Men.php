@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Men extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'category',
+        'size',
+        'brand',
+        'material',
+        'colour',
+        'price',
+        'image',
+        'actual_filename',
+    ]
 }

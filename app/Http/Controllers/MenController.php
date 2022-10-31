@@ -14,7 +14,7 @@ class MenController extends Controller
      */
     public function index()
     {
-        //
+        return view(admin.men.index);
     }
 
     /**
