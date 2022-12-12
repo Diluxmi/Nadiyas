@@ -22,19 +22,23 @@ class ProductStoreRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
-            'department'     =>'required',
-            'category'       =>'required',
-            'brand'          =>'required',
-            'size'           =>'required',
-            'collar'         =>'required',
-            'sleeve'         =>'required',
-            'material'       =>'required',
-            'type'           =>'required',
-            'price'          =>'required',
-            'colour'         =>'required',
-            'image'          =>'nullable',
-            'actual_filename'=>'nullable',
-            'extension'      =>'nullable',           ];
+            'name'                =>    'required',
+            'department_id'       =>    'required',
+            'category_id'         =>    'required',
+            'brand'               =>    'nullable',
+            'size'                =>    'required',
+            'coller'              =>    'nullable',
+            'sleeve'              =>    'nullable',
+            'material'            =>    'nullable',
+            'material_style'      =>    'nullable',
+            'type'                =>    'nullable',
+            'price'               =>    'required',
+            'colour'              =>    'required',
+            'image'               =>    'nullable',
+            'actual_filename'     =>    'nullable',
+            
+        ];
     }
 }

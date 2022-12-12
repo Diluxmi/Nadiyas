@@ -14,10 +14,13 @@ class customer extends Model
         'address',
         'phonenumber',
 
-    ]
+    ];
 
     public function user(){
       return $this->hasOne(User::class,'user_id'); 
+    }
 
+    public function order(){
+      return $this->hasMany(Order::class,'order_id'); 
     }
 }

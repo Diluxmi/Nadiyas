@@ -1,347 +1,751 @@
-@extends('layouts.customer.master')
-@section('title', 'sale')
+@extends('layouts.ecommerce.master')
+@section('title', 'dashboard')
 @section('content')
+<main>
 
-
-  
-    <!-- Start Slider -->
-    <div id="slides-shop" class="cover-slides">
-        <ul class="slides-container">
-            <li class="text-center">
-                <img src="images/saree.jpg"alt="">
+<div class="parallax section bg-dark" data-jarallax data-video-src="{{asset('customer/web.mp4')}}">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Women Fashion</strong></h1>
-                            <p class="m-b-40">I Think Being Intersting is More Important Than Being Beautiful</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                    <div class="row justify-content-center py-10">
+                        <div class="col-lg-6 text-center">
+                            <h6 class="text-uppercase text-white letter-spacing-3">Exclusive</h6>
+                            <h3 class="display-2 text-white font-alt mb-3">Best Summer Collection</h3>
+                            <p class="lead text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="pt-2">
+                                <a class="btn btn-outline-white" href="#">Let's Shop Now</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </li>
+            </div>
+
+
+</br>
+
+ <!-- Home Slider -->
+ <div class="swiper swiper-container" data-swiper-options='{
+                  "slidesPerView": 1,
+                  "spaceBetween": 15,
+                  "loop": true,
+                  "centeredSlides": true,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                    },
+                  "navigation": {
+                    "nextEl": ".swiper-next-02",
+                    "prevEl": ".swiper-prev-02"
+                  },
+                  "autoplay": {
+                    "delay": 3500,
+                    "disableOnInteraction": false
+                  },
+                  "breakpoints": {
+                    "600": {
+                      "slidesPerView": 2
+                    },
+                    "991": {
+                      "slidesPerView": 3
+                    },
+                    "1200": {
+                      "slidesPerView": 3
+                    }
+                  }
+                }'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/kids.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        
+                                            <h4 class="fw-500 text-uppercase mb-3">Kids</h4>
+                                            <h5 class="">New LookBook</h5>
+                                            <div class="pt-2">
+                                                <a class="btn btn-outline-dark" href="#">Shop Now</a>
+                                            </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/women/fw1.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class="bg- px-4 py-4 hc-slider-box">
+                                            <h6 class="fw-500 text-uppercase mb-3">Women's</h6>
+                                            <h5 class=" fw-600 text-uppercase">New LookBook</h5>
+                                            <div class="pt-2">
+                                                <a class="btn btn-outline-dark" href="#">Shop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/fm1.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h6 class="fw-500 text-uppercase mb-3">Men's</h6>
+                                            <h5 class=" fw-600 text-uppercase">New LookBook</h5>
+                                            <div class="pt-2">
+                                                <a class="btn btn-outline-dark" href="#">Shop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/fa1.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class="px-4 py-4 hc-slider-box">
+                                            <h5 class="fw-500 text-uppercase mb-3">Accessories</h5>
+                                            <h5 class="fw-600 text-uppercase">New LookBook</h5>
+                                            <div class="pt-2">
+                                                <a class="btn btn-outline-dark" href="#">Shop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-arrow-style-01 swiper-next swiper-next-02"><i class="bi bi-chevron-right"></i> </div>
+                <div class="swiper-arrow-style-01 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+
+
+<section class="section">
+                <div class="container">
+                    <div class="row justify-content-center section-heading">
+                        <div class="col-lg-6 text-center">
+                            <h3 class="fw-500 h2 m-0">Latest Arrivals</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-hover-arrow position-relative">
+                        <div class="swiper swiper-container" data-swiper-options='{
+                              "slidesPerView": 2,
+                              "spaceBetween": 10,
+                              "loop": true,
+                              "pagination": {
+                                "el": ".swiper-pagination",
+                                "clickable": true
+                                },
+                              "navigation": {
+                                "nextEl": ".swiper-next-02",
+                                "prevEl": ".swiper-prev-02"
+                              },
+                              "autoplay": {
+                                "delay": 3500,
+                                "disableOnInteraction": false
+                              },
+                              "breakpoints": {
+                                "600": {
+                                  "slidesPerView": 3
+                                },
+                                "991": {
+                                  "slidesPerView": 3,
+                                  "spaceBetween": 24
+                                },
+                                "1200": {
+                                  "slidesPerView": 4,
+                                  "spaceBetween": 24
+                                }
+                              }
+                        }'>
+                            <div class="swiper-wrapper">
+                                @foreach($products as $product)
+                                <div class="swiper-slide">
+                                    <div class="product-card-1">
+                                        <div class="product-card-image">
+                                            <div class="badge-ribbon">
+                                                <span class="badge bg-primary">New</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-heart"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-repeat"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
+                                                    <i class="fi-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-media">
+                                                <a href="{{route('productdetail.index')}}">
+                                                    <img class="img-fluid" src="{{url('public/images/'.$product->image)}}" style="height:300px; width:300px;" title="" alt="">
+                                                    
+                                                </a>
+                                                <div class="product-cart-btn">
+                                                    <a href="{{route('cart.index')}}" class="btn btn-primary btn-sm w-100">
+                                                        <i class="fi-shopping-cart"></i>
+                                                        Add to cart
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-meta small">
+                                                <a href="#">$product->name</a>
+                                            </div>
+                                            <div class="rating-star text">
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                            <h6 class="product-title">
+                                                <a href="#">Fine-knit sweater</a>
+                                            </h6>
+                                            <div class="product-price">
+                                                <span class="text-primary">$28.<small>50</small></span>
+                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <div class="swiper-pagination mt-4 d-lg-none position-relative"></div>
+                        </div>
+                        <div class="swiper-arrow-style-02 swiper-next swiper-next-02"><i class="bi-chevron-right"></i> </div>
+                        <div class="swiper-arrow-style-02 swiper-prev swiper-prev-02"><i class="bi-chevron-left"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Home Section -->
+            <div class="swiper swiper-container" data-swiper-options='{
+                  "slidesPerView": 1,
+                  "spaceBetween": 0,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-next-01",
+                    "prevEl": ".swiper-prev-01"
+                  },
+                  "autoplay": {
+                    "delay": 5000,
+                    "disableOnInteraction": false
+                  }
+                }'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('template/dist/assets/img/s17.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <h6 class="fw-300 text-uppercase text-white mb-3 letter-spacing-6">You're Looking Good</h6>
+                                        <h1 class="display-1 fw-300 text-white letter-spacing-6 text-uppercase">New LookBook</h1>
+                                        <div class="pt-3">
+                                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('template/dist/assets/img/s15.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <h6 class="fw-300 text-uppercase text-white mb-3 letter-spacing-6">You're Looking Good</h6>
+                                        <h1 class="display-1 fw-300 text-white letter-spacing-6 text-uppercase">New LookBook</h1>
+                                        <div class="pt-3">
+                                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+
+                        <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('template/dist/assets/img/s16.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <h6 class="fw-300 text-uppercase text-white mb-3 letter-spacing-6">You're Looking Good</h6>
+                                        <h1 class="display-1 fw-300 text-white letter-spacing-6 text-uppercase">New LookBook</h1>
+                                        <div class="pt-3">
+                                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-arrow-style-01 swiper-next swiper-next-01"><i class="bi-chevron-right"></i> </div>
+                <div class="swiper-arrow-style-01 swiper-prev swiper-prev-01"><i class="bi-chevron-left"></i></div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
 
             
-            <li class="text-center">
-                <img src="images/w2.jpg"alt="">
+
+            <section class="section">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Women Fashion</strong></h1>
-                            <p class="m-b-40"><strong>I Think Being Intersting is More Important Than Being Beautiful</strong></p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                    <div class="row justify-content-center section-heading">
+                        <div class="col-lg-6 text-center">
+                            <h3 class="fw-500 h2 m-0">Browse our Bestsellers</h3>
                         </div>
                     </div>
-                </div>
-            </li>
-
-            <li class="text-center">
-                <img src="images/w3.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Women Fashion</strong></h1>
-                            <p class="m-b-40"><strong>I Think Being Intersting is More Important Than Being Beautiful</strong></p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-            <li class="text-center">
-                <img src="images/m2.jpg"alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Men Fashion</strong></h1>
-                            <p class="m-b-40">I Think Being Intersting is More Important Than Being Beautiful</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-
-
-            <li class="text-center">
-                <img src="images/w4.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Women Fashion</strong></h1>
-                            <p class="m-b-40">I Think Being Intersting is More Important Than Being Beautiful</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="text-center">
-                <img src="images/men.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Men Fashion</strong></h1>
-                            <p class="m-b-40">I Think Being Intersting is More Important Than Being Beautiful</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="text-center">
-                <img src="images/k1.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Kids fashion</strong></h1>
-                            <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                            <p><a class="btn hvr-hover" href="#">Shop New</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        <div class="slides-navigation">
-            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
-            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <br>
-    <!-- End Slider -->
-   
-        
-    <div class="container-fluid pt-5">
-    <div class="flex-fill pl-3">
-    <h3 class="title-all text-center"><b>About</b></h3>
- <p class="mb-4 title-all text-center"> Nadiyas is a Trendy Fashionable Textile based in Nawalapitiya, Srilanka which has led the trendy lifestyle industry for the last two decades.
-  Our industry provids fashionable and new technology products in six locations for that Nawalapitya/ Gampola/ Matale/ Kandy/ Kurunagela/ Polonnaruwa.
-  We are well-known for our customer needs and provider for value added apparels and trade products,we have over 50000 loyal customers. </p>  
-</div>
-</div>
-
-
-<div class="container-fluid pt-5">
-    <div class="flex-fill pl-3">
-    <h3 class="title-all text-center"><b>Mission</b></h3>
- <p class="mb-4 title-all text-center"> To be the highest quality stndard, trendy lifestyle products &services provider in retail fashion industry. </p>  
-</div>
-</div>
-
-<div class="container-fluid pt-5">
-    <div class="flex-fill pl-3">
-    <h3 class="title-all text-center"><b>Vision</b></h3>
- <p class="mb-4 title-all text-center"> To create a value addition culture in our business atmosphere with continuous innovation, quality & latest technology bledended with valuable service. </p>  
-</div>
-</div>
-
-
-<div class="products-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-left">
-                        <h1>New Arrivals</h1>
-                        
-                    </div>
-                </div>
-            </div>
-  
-
-            <div class="row special-list">
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
+                    <div class="swiper-hover-arrow position-relative">
+                        <div class="swiper swiper-container" data-swiper-options='{
+                              "slidesPerView": 2,
+                              "spaceBetween": 10,
+                              "loop": true,
+                              "pagination": {
+                                "el": ".swiper-pagination",
+                                "clickable": true
+                                },
+                              "navigation": {
+                                "nextEl": ".swiper-next-02",
+                                "prevEl": ".swiper-prev-02"
+                              },
+                              "autoplay": {
+                                "delay": 3500,
+                                "disableOnInteraction": false
+                              },
+                              "breakpoints": {
+                                "600": {
+                                  "slidesPerView": 3
+                                },
+                                "991": {
+                                  "slidesPerView": 3,
+                                  "spaceBetween": 24
+                                },
+                                "1200": {
+                                  "slidesPerView": 4,
+                                  "spaceBetween": 24
+                                }
+                              }
+                        }'>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="product-card-1">
+                                        <div class="product-card-image">
+                                            <div class="badge-ribbon">
+                                                <span class="badge bg-danger">Sale</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-heart"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-repeat"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
+                                                    <i class="fi-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-media">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{asset('template/dist/assets/img/s6.jpg')}}" title="" alt="">
+                                                </a>
+                                                <div class="product-cart-btn">
+                                                    <a href="#" class="btn btn-primary btn-sm w-100">
+                                                        <i class="fi-shopping-cart"></i>
+                                                        Add to cart
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-meta small">
+                                                <a href="#">Clothing</a>, <a href="#">Men</a>
+                                            </div>
+                                            <div class="rating-star text">
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                            <h6 class="product-title">
+                                                <a href="#">Fine-knit sweater</a>
+                                            </h6>
+                                            <div class="product-price">
+                                                <span class="text-primary">$28.<small>50</small></span>
+                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-card-1">
+                                        <div class="product-card-image">
+                                            <div class="badge-ribbon">
+                                                <span class="badge bg-danger">Sale</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-heart"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-repeat"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
+                                                    <i class="fi-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-media">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{asset('template/dist/assets/img/s9.jpg')}}" style="width:300px;" title="" alt="">
+                                                </a>
+                                                <div class="product-cart-btn">
+                                                    <a href="#" class="btn btn-primary btn-sm w-100">
+                                                        <i class="fi-shopping-cart"></i>
+                                                        Add to cart
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-meta small">
+                                                <a href="#">Clothing</a>, <a href="#">Men</a>
+                                            </div>
+                                            <div class="rating-star text">
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                            <h6 class="product-title">
+                                                <a href="#">Fine-knit sweater</a>
+                                            </h6>
+                                            <div class="product-price">
+                                                <span class="text-primary">$28.<small>50</small></span>
+                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-card-1">
+                                        <div class="product-card-image">
+                                            <div class="badge-ribbon">
+                                                <span class="badge bg-danger">Sale</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-heart"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-repeat"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
+                                                    <i class="fi-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-media">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{asset('template/assets/img/s8.jpg')}}" title="" alt="">
+                                                </a>
+                                                <div class="product-cart-btn">
+                                                    <a href="#" class="btn btn-primary btn-sm w-100">
+                                                        <i class="fi-shopping-cart"></i>
+                                                        Add to cart
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-meta small">
+                                                <a href="#">Clothing</a>, <a href="#">Men</a>
+                                            </div>
+                                            <div class="rating-star text">
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                            <h6 class="product-title">
+                                                <a href="#">Fine-knit sweater</a>
+                                            </h6>
+                                            <div class="product-price">
+                                                <span class="text-primary">$28.<small>50</small></span>
+                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-card-1">
+                                        <div class="product-card-image">
+                                            <div class="badge-ribbon">
+                                                <span class="badge bg-danger">Sale</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-heart"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-repeat"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
+                                                    <i class="fi-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-media">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{asset('template/dist/assets/img/s5.jpg')}}" title="" alt="">
+                                                </a>
+                                                <div class="product-cart-btn">
+                                                    <a href="#" class="btn btn-primary btn-sm w-100">
+                                                        <i class="fi-shopping-cart"></i>
+                                                        Add to cart
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-meta small">
+                                                <a href="#">Clothing</a>, <a href="#">Men</a>
+                                            </div>
+                                            <div class="rating-star text">
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                            <h6 class="product-title">
+                                                <a href="#">Fine-knit sweater</a>
+                                            </h6>
+                                            <div class="product-price">
+                                                <span class="text-primary">$28.<small>50</small></span>
+                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-card-1">
+                                        <div class="product-card-image">
+                                            <div class="badge-ribbon">
+                                                <span class="badge bg-danger">Sale</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-heart"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-repeat"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
+                                                    <i class="fi-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-media">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{asset('template/dist/assets/img/s7.jpg')}}" title="" alt="">
+                                                </a>
+                                                <div class="product-cart-btn">
+                                                    <a href="#" class="btn btn-primary btn-sm w-100">
+                                                        <i class="fi-shopping-cart"></i>
+                                                        Add to cart
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-meta small">
+                                                <a href="#">Clothing</a>, <a href="#">Men</a>
+                                            </div>
+                                            <div class="rating-star text">
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                            <h6 class="product-title">
+                                                <a href="#">Fine-knit sweater</a>
+                                            </h6>
+                                            <div class="product-price">
+                                                <span class="text-primary">$28.<small>50</small></span>
+                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="product-card-1">
+                                        <div class="product-card-image">
+                                            <div class="badge-ribbon">
+                                                <span class="badge bg-danger">Sale</span>
+                                            </div>
+                                            <div class="product-action">
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-heart"></i>
+                                                </a>
+                                                <a href="#" class="btn btn-outline-primary">
+                                                    <i class="fi-repeat"></i>
+                                                </a>
+                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
+                                                    <i class="fi-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-media">
+                                                <a href="#">
+                                                    <img class="img-fluid" src="{{asset('template/dist/assets/img/s9.jpg')}}" title="" alt="">
+                                                </a>
+                                                <div class="product-cart-btn">
+                                                    <a href="#" class="btn btn-primary btn-sm w-100">
+                                                        <i class="fi-shopping-cart"></i>
+                                                        Add to cart
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card-info">
+                                            <div class="product-meta small">
+                                                <a href="#">Clothing</a>, <a href="#">Men</a>
+                                            </div>
+                                            <div class="rating-star text">
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star-fill active"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                            <h6 class="product-title">
+                                                <a href="#">Fine-knit sweater</a>
+                                            </h6>
+                                            <div class="product-price">
+                                                <span class="text-primary">$28.<small>50</small></span>
+                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <img src="{{asset('images/sathees.jpg')}}" style="width: 255px; height: 300px;" class="img-fluid" alt="Image">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
+                            <div class="swiper-pagination mt-4 d-lg-none position-relative"></div>
                         </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $7.79</h5>
-                        </div>
+                        <div class="swiper-arrow-style-02 swiper-next swiper-next-02"><i class="bi-chevron-right"></i> </div>
+                        <div class="swiper-arrow-style-02 swiper-prev swiper-prev-02"><i class="bi-chevron-left"></i></div>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="new">New</p>
-                            </div>
-                            <img src="{{asset('images/s1.jpg')}}" class="img-fluid" style="width: 255px; height: 300px;" alt="Image">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $9.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
-                            </div>
-                            <img src="{{asset('images/m1.jpg')}}" class="img-fluid" style="width: 255px; height: 300px;" alt="Image">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $10.79</h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
-                            </div>
-                            <img src="{{asset('images/ms.jpg')}}" class="img-fluid" style="width: 255px; height: 300px;" alt="Image">
-                            <div class="mask-icon">
-                                <ul>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                </ul>
-                                <a class="cart" href="#">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h5> $15.79</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            </section>
+ </br>
 
 
-    <div class="products-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-left">
-                        <h1>Featured Items</h1>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-   
-    
-    <!-- End Products  -->
 
-    <!-- Start Instagram Feed  -->
-    <div class="instagram-box">
-        <div class="main-instagram owl-carousel owl-theme">
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/sathees.jpg" style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+
+
+
+
+
+
+             
+
+
+
+            
+                
+            <div class="pt-3">
+                <div class="container-fluid px-0">
+                    <div class="swiper-hover-arrow position-relative">
+                        <div class="swiper swiper-container" data-swiper-options='{
+                            "slidesPerView": 2,
+                            "spaceBetween": 0,
+                            "loop": true,
+                            "pagination": {
+                                "el": ".swiper-pagination",
+                                "clickable": true
+                            },
+                            "navigation": {
+                                "nextEl": ".swiper-next-02",
+                                "prevEl": ".swiper-prev-02"
+                            },
+                            "autoplay": {
+                                "delay": 3500,
+                                "disableOnInteraction": false
+                            },
+                            "breakpoints": {
+                                "600": {
+                                    "slidesPerView": 4
+                                },
+                                "991": {
+                                    "slidesPerView": 4
+                                },
+                                "1200": {
+                                    "slidesPerView": 6
+                                },
+                                "1300": {
+                                    "slidesPerView": 7
+                                }
+                            }
+                        }'>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/moose.png')}}" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/vintage.png')}}" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="../../assets/img/brand/b3.png" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="../../assets/img/brand/b4.png" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="../../assets/img/brand/b5.png" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="../../assets/img/brand/b6.png" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="../../assets/img/brand/b7.png" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/moose.jpg')}}" title="" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination mt-4 d-lg-none position-relative"></div>
+                        </div>
+                        <div class="swiper-arrow-style-02 swiper-next swiper-next-02"><i class="bi bi-chevron-right"></i> </div>
+                        <div class="swiper-arrow-style-02 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/m1.jpg" style="width: 200px; height: 200px;"alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/ms.jpg" style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/kids.jpg"style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/s1.jpg" style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/m1.jpg" style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/saree.jpg" style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/modern.jpg"style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/kids.jpg" style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="ins-inner-box">
-                    <img src="images/ms.jpg" style="width: 200px; height: 200px;" alt="" />
-                    <div class="hov-in">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-  
+                    </main>
 @endsection

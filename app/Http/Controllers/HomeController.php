@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Customer;
+use App\Models\Department;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,8 +28,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(User $user,Customer $customer,Department $department)
     {
+        $departments =Department::orderBy('id','asc')->paginate('12');
+        $categories = Category::orderBy('id','asc')->paginate('12');
+        $products =Product::orderBy('id','asc')->paginate('12');
         $role = Auth::user()->role->name;
         switch($role){
             case 'Admin':
@@ -32,7 +41,7 @@ class HomeController extends Controller
 
 
             case 'Customer':
-                return view('customer_home');
+                return view('welcome',compact('customer','departments','categories','products'));
                 break;
 
         }

@@ -1,18 +1,24 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Providers\RouteServiceProvider;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Customer;
+use App\Models\Department;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Validator;
 class CustomAuthController extends Controller
 {
     public function index()
     {
-        return view('auth.login');
+        $departments = Department::all();
+        return view('auth.login',compact('departments'));
     }  
       
-    public function customLogin(Request $request)
+    public function customLogin(Request $request, Department $department)
     {
         $request->validate([
             'email' => 'required',
@@ -21,8 +27,7 @@ class CustomAuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
-                        ->withSuccess('Signed in');
+            return redirect()->intended('home')->withSuccess('Signed in');
         }
   
         return redirect("login")->withSuccess('Login details are not valid');
@@ -30,45 +35,46 @@ class CustomAuthController extends Controller
 
     public function registration()
     {
-        return view('auth.registration');
+
+        $departments =Department::all();
+        return view('auth.register',compact('departments'));
     }
       
-    public function customRegistration(Request $request)
+    public function customRegistration(UserStoreRequest $request)
     {  
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-        ]);
-           
-        $data = $request->all();
-        $check = $this->create($data);
-         
-        return redirect("dashboard")->withSuccess('You have signed-in');
-    }
-
-    public function create(array $data)
-    {
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password'])
-      ]);
-    }    
+            $request->validate([
+                'title'=>'required',
+                'name' => ['required', 'string', 'max:255'],
+                'address' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'phonenumber' =>['required','regex:/^([0-9\s\-\+\(\)]*)$/','min:10'], /// meaning of regex
+                'password' => ['required','confirmed'],
+            ]);
     
-    public function dashboard()
-    {
-        if(Auth::check()){
-            return view('dashboard');
+    
+            $customer = Customer::create([
+                'title'=>$request->title,
+                'name' => $request->firstname,
+                'address'  =>$request->address,
+                'phonenumber' =>$request->phonenumber,
+                 // not in customer table    
+    
+                 
+            ]);
+    
+            $user = User::create([
+                'role_id'=>3,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'customer_id' =>$customer->id,
+    
+            
+            ]);
+    
+            event(new Registered($user));
+    
+            Auth::login($user);
+    
+            return redirect(RouteServiceProvider::HOME);
         }
-  
-        return redirect("login")->withSuccess('You are not allowed to access');
     }
-    
-    public function signOut() {
-        Session::flush();
-        Auth::logout();
-  
-        return Redirect('login');
-    }
-}

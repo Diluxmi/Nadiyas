@@ -24,33 +24,9 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            $rule = [];
-            if($type =$this->input('role_id')){
-              
-                switch($type){
-                    case 1:
-                    $rule =[
-                       
-                        'email' => 'required|email|unique:users',
-                        'role_id' => 'required',
-                        'password' => 'required | confirmed | string | min:8',
-                    ];
-                    break;
-                    case 2:
-                    $rule =[
-                        'role_id'=>'required',
-                        'name'=>'required',
-                        'address' =>'required',
-                        'password' => 'required | confirmed | string | min:8',
-                        'phonenumber' =>'required',
-                        'email' => 'required|email|unique:users',
-                        
-                    ];
-                    break;
-                }
-            
-             return $rule;
-            }
-    
-    }
+            'email'=>'required|email|unique:users',
+            'password'=>'required|confirmed|string|min:8',
+        ];   
+      
+}
 }
