@@ -5,6 +5,7 @@
 @include('layouts.ecommerce._style')
 </head>
 <body>
+
         @include('layouts.ecommerce._header')
           @yield('content')
           @include('layouts.ecommerce._footer')   

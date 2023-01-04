@@ -15,18 +15,15 @@ use Illuminate\Support\Facades\Hash;
 
 class ProductviewController extends Controller
 {
-   
-    public function index(Department $department, Product $product,Category $category){
-        $departments =Department::orderBy('id','asc')->paginate('12');
-        $categories = Category::orderBy('id','asc')->paginate('12');
-        $products=Product::orderBy('id','asc')->paginate('12');
-
-        
-        return view('admin.productview.index',compact('departments','category','products'));
+    public function index(Request $request){
+           
+        $departments = Department::all();
+        $products=Product::where('category_id',$request->category)->orderBy('id','asc')->paginate('12');
+        return view('admin.productview.index',compact('products','departments'));
     }
 
- public function show(Product $product){
-    $departments =Department::orderBy('id','asc')->paginate('12');
+    public function show(Product $product){
+        $departments =Department::orderBy('id','asc')->paginate('12');
      return view('admin.productview.show',compact('departments','product'));
  }
 }

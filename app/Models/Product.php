@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Product extends Model
 {
     use HasFactory;
@@ -20,6 +21,7 @@ class Product extends Model
         'price',
         'colour',
         'department_id',
+        'categorytype_id',
         'category_id',
         'image',
         'actual_filename',
@@ -30,10 +32,15 @@ class Product extends Model
         return $this->belongsTo(Department::class,'department_id');
     }
 
+    public function categorytype(){
+        return $this->belongsTo(Categorytype::class,'categorytype_id');
+    }
     public function category(){
         return $this->belongsTo(Category::class,'category_id');
     }
     public function orderitem(){
         return $this->hasMany(Orderitem::class,'order_id');
     }
+
+    
 }

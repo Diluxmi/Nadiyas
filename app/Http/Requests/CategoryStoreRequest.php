@@ -27,6 +27,7 @@ class CategoryStoreRequest extends FormRequest
             'name'=>'required',
             'subcategory'=>'required',
             'department_id'=>'required',
+            'categorytype_id'=>'required',
         ];
     }
 }

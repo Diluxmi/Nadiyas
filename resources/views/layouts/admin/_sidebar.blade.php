@@ -21,14 +21,40 @@
               <span class="menu-title">Home</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <i class="mdi mdi-account"></i>
+              <span class="menu-title">User</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="">Admin</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Customer</a>
+                </li>
+              </ul>
+            </div>
+          </li>
          
 
          
          
           <li class="nav-item">
             <a class="nav-link" href="{{route('department.index')}}">
-              <i class="mdi mdi-account"></i>
+              <i class="mdi mdi-bank"></i>
               <span class="menu-title">Department</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('categorytype.index')}}">
+              <i class="mdi mdi-store"></i>
+              <span class="menu-title">Category Type</span>
             </a>
           </li>
 
@@ -36,7 +62,7 @@
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('category.index')}}">
-              <i class="mdi mdi-note"></i>
+              <i class="mdi mdi-store"></i>
               <span class="menu-title">Category</span>
             </a>
           </li>

@@ -4,4 +4,4 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name="keywords" content="ShopApp - eCommerce Bootstrap 5 Template">
 <meta name="description" content="ShopApp - eCommerce Bootstrap 5 Template"><!-- title -->
-<title>Nadiyas</title><!-- Favicon -->
+<title>Nadiya's</title><!-- Favicon -->

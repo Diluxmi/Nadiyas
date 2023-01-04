@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('department_id');
             $table->foreignId('category_id');
+            $table->foreignId('categorytype_id');
             $table->string('name');
             $table->string('brand')->nullable();
             $table->string('size');
@@ -24,7 +25,6 @@ return new class extends Migration
             $table->string('sleeve')->nullable();
             $table->string('material')->nullable();
             $table->string('material_style')->nullable();
-            $table->string('type')->nullable();
             $table->float('price');
             $table->string('colour');
             $table->string('image')->nullable();
@@ -34,6 +34,7 @@ return new class extends Migration
 
             
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+           $table->foreign('categorytype_id')->references('id')->on('categorytypes')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             
         });

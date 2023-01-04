@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Department;
 use App\Models\Category;
+use App\Models\Categorytype;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,6 +14,7 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -31,7 +33,7 @@ class ProductController extends Controller
 
     public function index(Product $product)
     {
-        $products =Product::orderBy('id','asc')->paginate('12');
+        $products=Product::orderBy('id','desc')->paginate('12');
         return view('admin.product.index',compact('products'));
     }
 
@@ -45,12 +47,21 @@ class ProductController extends Controller
         
         $categories =Category::all();
         $departments =Department::all();
+        $categorytypes=Categorytype::all();
 
-        return view('admin.product.create',compact('categories','departments'));
+        return view('admin.product.create',compact('categories','departments','categorytypes'));
     }
 
+    
+
     public function dropdown(Request $request){
-        $categories = Category::where("department_id",$request->department)->get();
+        $categorytypes =Categorytype::where('department_id',$request->department)->get();
+        $categories = Category::all();
+        return response()->json(['categorytypes'=>$categorytypes,'categories'=>$categories]);
+    }
+
+    public function dropdown1(Request $request){
+        $categories = Category::where("categorytype_id",$request->categorytype)->get();
         return response()->json($categories);
     }
 
@@ -87,11 +98,11 @@ class ProductController extends Controller
         'sleeve'=>$data['sleeve'],
         'material'=>$data['material'],
         'material_style'=>$data['material_style'],
-        'type'=>$data['type'],
         'price'=>$data['price'],
         'department_id'=>$data['department_id'],
+        'categorytype_id'=>$data['categorytype_id'],
         'category_id'=>$data['category_id'],
-        'image'=>$filename,
+        'image'=>$path,
         'actual_filename'=>$name,
         'extension'=>$extension,
       ]);

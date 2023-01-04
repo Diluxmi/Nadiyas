@@ -26,6 +26,7 @@ class ProductStoreRequest extends FormRequest
         return [
             'name'                =>    'required',
             'department_id'       =>    'required',
+            'categorytype_id'     =>    'required',
             'category_id'         =>    'required',
             'brand'               =>    'nullable',
             'size'                =>    'required',
@@ -33,7 +34,6 @@ class ProductStoreRequest extends FormRequest
             'sleeve'              =>    'nullable',
             'material'            =>    'nullable',
             'material_style'      =>    'nullable',
-            'type'                =>    'nullable',
             'price'               =>    'required',
             'colour'              =>    'required',
             'image'               =>    'nullable',

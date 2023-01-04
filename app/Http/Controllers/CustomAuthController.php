@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Customer;
 use App\Models\Department;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 class CustomAuthController extends Controller
@@ -15,6 +16,7 @@ class CustomAuthController extends Controller
     public function index()
     {
         $departments = Department::all();
+        
         return view('auth.login',compact('departments'));
     }  
       
@@ -35,16 +37,17 @@ class CustomAuthController extends Controller
 
     public function registration()
     {
-
+        
         $departments =Department::all();
         return view('auth.register',compact('departments'));
     }
       
-    public function customRegistration(UserStoreRequest $request)
+    public function customRegistration(Request $request)
     {  
+    
             $request->validate([
                 'title'=>'required',
-                'name' => ['required', 'string', 'max:255'],
+               'name' => ['required', 'string', 'max:255'],
                 'address' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'phonenumber' =>['required','regex:/^([0-9\s\-\+\(\)]*)$/','min:10'], /// meaning of regex
@@ -53,8 +56,9 @@ class CustomAuthController extends Controller
     
     
             $customer = Customer::create([
+
                 'title'=>$request->title,
-                'name' => $request->firstname,
+                'name' => $request->name,
                 'address'  =>$request->address,
                 'phonenumber' =>$request->phonenumber,
                  // not in customer table    
@@ -63,7 +67,7 @@ class CustomAuthController extends Controller
             ]);
     
             $user = User::create([
-                'role_id'=>3,
+                'role_id'=>2,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'customer_id' =>$customer->id,

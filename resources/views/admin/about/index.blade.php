@@ -43,7 +43,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 my-3">
-                            <img src="{{asset('template/dist/assets/img/nadiyas logo.png')}}" style="width:300px;" alt="" title="" class="img-fluid">
+                            <img src="{{asset('customer/img/nadiyas logo.png')}}" style="width:300px;" alt="" title="" class="img-fluid">
                         </div>
                         <div class="col-lg-6 ps-lg-8 my-3">
                             <h6 class="mb-3 text-gray-400">
@@ -78,7 +78,7 @@ For that Nawalapitiya,Gampola,Matale,Kandy,Kurunagala,Polonnaruwa.They have 5000
                         <div class="col-md-4">
                             <div class="pe-lg-5">
                                 <h3 class="mb-3">Our goal</h3>
-                                <p class="m-0">Flone provide how all this mistaken idea of denounc pleasure and sing pain was born an will give you a ete account of the system, and expound the actual teangs the eat explorer of the truth.</p>
+                                <p class="m-0">Improve the shopper's experience, Analyze, measure and leverage customer data to improve sales,improve the customer support experience</p>
                             </div>
                         </div>
                     </div>

@@ -31,7 +31,7 @@
                                     <h3 class="h4 mb-0">Register </h3>
                                 </div>
                                 <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register.custom') }}">
                       @csrf
                                         <div class="row">
                                         <div class="col-md-2">
@@ -46,39 +46,42 @@
                                                 {!!Form::text('name','Full Name')!!}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                {!!Form::text('name','Full Name')!!} 
-                                                </div>
-                                            </div>
-                                        </div>
+                                          
                                         <div class="row">
-                                        <div class="col-md-12">
+                                            <div class="col-md-12">
                                                 <div class="form-group mb-3">
                                                 {!!Form::text('address','Address')!!}
                                                 </div>
                                             </div>
-
-                                             <div class="col-md-12">
+                                        </div>
+                                        <div class="row">
+                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                 {!!Form::text('phonenumber','Mobile Number')!!}
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
+                                        </div>
+                                        <div class="row">
+                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
-                                                {!!Form::text('password','Password')!!}
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                {!!Form::text('password','Password')!!}
+                                                {!!Form::text('email','email')!!}
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-check mb-3">
-                                        {!! Form::text('password_confirmation', 'Confirm Password')->type('password') !!}
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group mb-3">
+                                                {!!Form::text('password','Password')->type('password')!!}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-check mb-3">
+                                                {!! Form::text('password_confirmation', 'Confirm Password')->type('password') !!}
+                                                </div>
+                                            </div>
                                         </div>
+                                        
                                         <div class="form-group row align-items-center">
                                             <div class="col-6">
                                                 <button type="submit" class="btn btn-primary">

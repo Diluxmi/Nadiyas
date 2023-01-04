@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Category;
+use App\Models\Categorytype;
 use Illuminate\Http\Request;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
@@ -28,11 +29,17 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $departments = Department::pluck('name','id')->toArray();
-        $departments['']='---Choose your Department---';
-        return view('admin.category.create',compact('departments'));
+        $departments = Department::all();
+        $categorytypes = Categorytype::all('name','id');
+      
+        return view('admin.category.create',compact('departments','categorytypes'));
     }
 
+    public function dropdown3(Request $request){
+    
+        $categorytypes =Categorytype::where('department_id',$request->department)->get();
+        return response()->json($categorytypes);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -46,6 +53,7 @@ class CategoryController extends Controller
             'name'=>$data['name'],
            'subcategory'=>$data['subcategory'],
             'department_id'=>$data['department_id'],
+            'categorytype_id'=>$data['categorytype_id'],
         ]);
         return redirect()->route('category.index')->with('success','category has been created successful!');
 

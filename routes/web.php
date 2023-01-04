@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\ProductdetailController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CategorytypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +68,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
         Route::get('/',[CategoryController::class,'index'])->name('category.index');
         Route::get('/create',[CategoryController::class,'create'])->name('category.create');
         Route::post('/store',[CategoryController::class,'store'])->name('category.store');
+        Route::get('ajaxRequest3',[CategoryController::class,'dropdown3'])->name('get.category3');
 
     Route::group(['prefix'=>'{category}'],function(){
         Route::get('/show',[CategoryController::class,'show'])->name('category.show');
@@ -82,7 +85,9 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
         Route::get('/create',[ProductController::class,'create'])->name('product.create');
         Route::post('/store',[ProductController::class,'store'])->name('product.store');
         Route::get('ajaxRequest',[ProductController::class,'dropdown'])->name('get.category');
+        Route::get('ajaxRequest1',[ProductController::class,'dropdown1'])->name('get.category1');
         Route::get('ajaxRequest2',[ProductController::class,'dropdown2'])->name('get.category2');
+        
 
     Route::group(['prefix'=>'{product}'],function(){
         Route::get('/show',[ProductController::Class,'show'])->name('product.show');
@@ -98,7 +103,7 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
     });
 
     Route::group(['prefix'=>'productview'],function(){
-        Route::get('/',[ProductviewController::class,'index'])->name('productview.index');
+        Route::get('ajaxRequest3',[ProductviewController::class,'index'])->name('productview.index');
     
     Route::group(['prefix'=>'{product}'],function(){
         Route::get('/show',[ProductviewController::class,'show'])->name('productview.show');
@@ -112,6 +117,11 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
     Route::group(['prefix'=>'about'],function(){
         Route::get('/',[AboutController::class,'index'])->name('about.index');
+        Route::get('/contact',[AboutController::class,'contact'])->name('about.contact');
+        Route::get('/help',[AboutController::class,'help'])->name('about.help');
+        Route::get('/policy',[AboutController::class,'policy'])->name('about.policy');
+        Route::get('/faq',[AboutController::class,'faq'])->name('about.faq');
+        Route::get('/terms',[AboutController::class,'terms'])->name('about.terms');
     });
 
    
@@ -129,7 +139,26 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
         Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
 });
 
+Route::group(['prefix'=>'user'],function(){
+    Route::get('/',[UserController::class,'index'])->name('user.index');
+});
 
+Route::group(['prefix'=>'categorytype'],function(){
+    Route::get('/',[CategorytypeController::class,'index'])->name('categorytype.index');
+    Route::get('/create',[CategorytypeController::class,'create'])->name('categorytype.create');
+    Route::post('/store',[CategorytypeController::class,'store'])->name('categorytype.store');
+    
+    
+Route::group(['prefix'=>'{categorytype}'],function(){
+    
+    Route::get('/show',[CategorytypeController::class,'show'])->name('categorytype.show');
+    Route::get('/edit',[CategorytypeController::class,'edit'])->name('categorytype.edit');
+    Route::patch('/update',[CategorytypeController::class,'update'])->name('categorytype.update');
+    Route::get('/delete',[CategorytypeController::class,'delete'])->name('categorytype.delete');
+    Route::delete('/destroy',[CategorytypeController::class,'destroy'])->name('categorytype.destroy');
+    });  
+  
+});
 
   
     

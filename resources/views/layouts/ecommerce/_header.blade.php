@@ -39,230 +39,55 @@
                                 <ul class="navbar-nav mx-auto">
 
                                 <li class="dropdown dropdown-full nav-item">
-                                        <a href="{{route('welcome')}}" class="nav-link">Home</a> 
+                                        <a href="{{route('welcome')}}" class="nav-link active">Home</a> 
                             </li>
 
                             <li class="dropdown dropdown-full nav-item">
                                         <a href="{{route('about.index')}}" class="nav-link">About</a> 
                             </li>
 
-                            @foreach($departments as $department)
-                  <li class="dropdown dropdown-full nav-item" >
-                        <a href="#"   onmouseover="listcategories('{{$department->id}}')" class="nav-link">{{$department->name}}</a>
-                        <div class="dropdown-menu dropdown-mega-menu py-0"   id="{{$department->id}}">
-                       
-                            </div>
- 
-                  </li>
-              @endforeach
-                          
-                            <li class="dropdown dropdown-full nav-item">
-                        <a href="#" class="nav-link">Women</a>
-                        <label class="px-dropdown-toggle mob-menu"></label>
-                        <div class="dropdown-menu dropdown-mega-menu py-0">
-                            <div class="container p-3 p-lg-4">
-                                <div class="row gy-4">
-                                    <div class="col-lg-6">
-                                        <div class="row gy-4">
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Formal Wear</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Shirt</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Trouser</a>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Casual Wear</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">T-Shirt</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Shorts</a>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Party Wear</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Lehenga</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Saree</a>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Cosmetic</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Lehenga</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Saree</a>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </div>
-
-
-
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Accessories</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Purse</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Bag</a>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Foot Wear</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Shoe</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Cosmopolis</a>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 d-flex flex-column">
-                                        <div class="rounded h-100 bg-cover bg-no-repeat d-flex align-items-center justify-content-center py-8 p-xl-5" style="background-image: url({{asset('template/dist/assets/img/s10.jpg')}});">
-                                            <div class="w-100 text-center">
-                                                <h6 class="text-uppercase fw-300 text-white mb-2">NEW IN</h6>
-                                                <h3 class="fw-400 h3 text-white">New Exclusive<br />2022 Collection</h3>
-                                                <div class="pt-2">
-                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="dropdown dropdown-full nav-item">
-                        <a href="#" class="nav-link">Men</a>
-                        <label class="px-dropdown-toggle mob-menu"></label>
-                        <div class="dropdown-menu dropdown-mega-menu py-0">
-                            <div class="container p-3 p-lg-4">
-                                <div class="row gy-4">
-                                    <div class="col-lg-6">
-                                        <div class="row gy-4">
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Formal Wear</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Shirt</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Trouser</a>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Casual Wear</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">T-Shirt</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Shorts</a>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Accessories</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Purse</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Belt</a>
-                                                    </li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="col-6">
-                                                <h6 class="sm-title-04"><a class="text-reset" href="#">Foot Wear</a></h6>
-                                                <ul class="list-unstyled link-list-style-03">
-                                                    <li>
-                                                        <a href="#">Shoe</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">Cosmopolis</a>
-                                                    </li>
-                                                   
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 d-flex flex-column">
-                                        <div class="rounded h-100 bg-cover bg-no-repeat d-flex align-items-center justify-content-center py-8 p-xl-5" style="background-image: url({{asset('template/dist/assets/img/s5.jpg')}});">
-                                            <div class="w-100 text-center">
-                                                <h6 class="text-uppercase fw-300 text-white mb-2">NEW IN</h6>
-                                                <h3 class="fw-400 h3 text-white">New Exclusive<br />2022 Collection</h3>
-                                                <div class="pt-2">
-                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                   
+    @foreach($departments as $department)
+        <li class="dropdown dropdown-full nav-item" >
+            <a href="#"   onmouseover="listcategories('{{$department->id}}')" class="nav-link">{{$department->name}}</a>
+            <label class="px-dropdown-toggle mob-menu"></label>    
+            <div class="dropdown-menu dropdown-mega-menu py-0"   >
+                <div class="container p-3 p-lg-4"><div class="row gy-4"><div class="col-lg-6"><div id="{{$department->id}}" class="row gy-4"></div></div></div></div>
+                </div>
+        </li>
+    @endforeach
+     
   </div><!-- End Menu -->
         <div class="nav flex-nowrap align-items-center header-right">
-    
+       
+        <div class="nav-item">
+        
+        <a class="nav-link" data-bs-toggle="offcanvas" href="#header_search_popup" role="button" aria-controls="header_search_popup">
+        <i class="fi-search"> </i>
+            </a>
 
+        </div>
 
 
 
             <div class="nav-item dropdown">
                 <a class="nav-link" href="#" role="button" id="dropdown_myaccount" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fi-user"></i>
-                    
                 </a>
             <div class="dropdown-menu dropdown-menu-end mt-2 shadow" aria-labelledby="dropdown_myaccount">
                 @if (Route::has('login'))
-                   
                 @auth
-
-            <a  class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();" >
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf    
-                </form> Logout</a>
-                  @else
+                    <a  class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf    
+                        </form> Logout</a>
+                            @else
             
-            <a class="dropdown-item" href="{{ route('login') }}">Login</a>         
-                @if (Route::has('register'))
+                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>         
+                        @if (Route::has('register'))
                     <a class="dropdown-item" href="{{ route('register-user') }}">Register</a>
-                @endif  
-                @endauth
-                @endif
+                    @endif  
+                    @endauth
+                    @endif
 
                 @if(Route::has('login'))
                 @auth
@@ -271,9 +96,9 @@
                 @endif
                 @endauth
                     <a class="dropdown-item" href="#">Wishlist</a>
-                    
-                    </div> 
+                   </div> 
                 </div>
+
                  <div class="nav-item d-none d-xl-block">
                     <a class="nav-link" href="#"><i class="fi-heart"></i></a>
                 </div><!-- Cart -->
@@ -283,7 +108,7 @@
                     </a>
                 </div>
         <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                        <span class="navbar-toggler-icon">
+        <span class="navbar-toggler-icon">
                                         
 
      </div></div></nav></header>

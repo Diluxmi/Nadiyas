@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->foreignId('department_id');
+            $table->foreignId('categorytype_id');
             $table->string('subcategory');
             $table->timestamps();
 
-            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
-        });
+             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+             $table->foreign('categorytype_id')->references('id')->on('categorytypes')->onDelete('cascade');
+            });
     }
 
     /**
