@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('department_id');
             $table->timestamps();
 
+            $table->unique(['name','department_id']);//composite key
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
         });
     }

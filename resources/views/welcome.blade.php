@@ -187,21 +187,28 @@
                                                 </a>
                                             </div>
                                             <div class="product-media">
-                                                <a href="{{route('productdetail.index')}}">
+                                                <a href="{{route('productview.show',$product->id)}}">
                                                     <img class="img-fluid" src="{{url('storage/'.$product->image)}}" style="height:300px; width:300px;" title="" alt="">
                                                     
                                                 </a>
-                                                <div class="product-cart-btn">
-                                                    <a href="{{route('cart.index')}}" class="btn btn-primary btn-sm w-100">
-                                                        <i class="fi-shopping-cart"></i>
-                                                        Add to cart
-                                                    </a>
-                                                </div>
+                                <form method="Post" action="{{route('cart.store',$product->id)}}" enctype="multipart/form-data">            
+                                
+                                    <input type="hidden" value="{{$product->id}}" name="id">
+                                    <input type="hidden" value="{{$product->name}}" name="name">
+                                    <input type="hidden" value="{{$product->price}}" name="price">
+                                    <input type="hidden" value ="{{$product->image}}"  name="image">
+                                    <input type="hidden" value="1" name="quantity">
+                                    <div class="product-cart-btn">
+                                        <button class="btn btn-primary btn-sm w-100">
+                                        <i class="fi-shopping-cart"></i>Add to cart</button>
+                                    </div>
+                                </form>
+                                                
                                             </div>
                                         </div>
                                         <div class="product-card-info">
                                             <div class="product-meta small">
-                                                <a href="#">$product->name</a>
+                                                <a href="#">{{$product->name}}</a>
                                             </div>
                                             <div class="rating-star text">
                                                 <i class="bi-star-fill active"></i>
@@ -210,12 +217,10 @@
                                                 <i class="bi-star-fill active"></i>
                                                 <i class="bi-star"></i>
                                             </div>
-                                            <h6 class="product-title">
-                                                <a href="#">Fine-knit sweater</a>
-                                            </h6>
+                                           
                                             <div class="product-price">
-                                                <span class="text-primary">$28.<small>50</small></span>
-                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                                <span class="text-primary">Rs.{{$product->price}}</span>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -301,357 +306,7 @@
                 <div class="swiper-pagination swiper-pagination-white"></div>
             </div>
 
-            
-
-            <section class="section">
-                <div class="container">
-                    <div class="row justify-content-center section-heading">
-                        <div class="col-lg-6 text-center">
-                            <h3 class="fw-500 h2 m-0">Browse our Bestsellers</h3>
-                        </div>
-                    </div>
-                    <div class="swiper-hover-arrow position-relative">
-                        <div class="swiper swiper-container" data-swiper-options='{
-                              "slidesPerView": 2,
-                              "spaceBetween": 10,
-                              "loop": true,
-                              "pagination": {
-                                "el": ".swiper-pagination",
-                                "clickable": true
-                                },
-                              "navigation": {
-                                "nextEl": ".swiper-next-02",
-                                "prevEl": ".swiper-prev-02"
-                              },
-                              "autoplay": {
-                                "delay": 3500,
-                                "disableOnInteraction": false
-                              },
-                              "breakpoints": {
-                                "600": {
-                                  "slidesPerView": 3
-                                },
-                                "991": {
-                                  "slidesPerView": 3,
-                                  "spaceBetween": 24
-                                },
-                                "1200": {
-                                  "slidesPerView": 4,
-                                  "spaceBetween": 24
-                                }
-                              }
-                        }'>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="product-card-1">
-                                        <div class="product-card-image">
-                                            <div class="badge-ribbon">
-                                                <span class="badge bg-danger">Sale</span>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-heart"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-repeat"></i>
-                                                </a>
-                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
-                                                    <i class="fi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-media">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="{{asset('customer/img/frontimage/f2.jpg')}}" title="" alt="">
-                                                </a>
-                                                <div class="product-cart-btn">
-                                                    <a href="#" class="btn btn-primary btn-sm w-100">
-                                                        <i class="fi-shopping-cart"></i>
-                                                        Add to cart
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-card-info">
-                                            <div class="product-meta small">
-                                                <a href="#">Clothing</a>, <a href="#">Men</a>
-                                            </div>
-                                            <div class="rating-star text">
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star"></i>
-                                            </div>
-                                            <h6 class="product-title">
-                                                <a href="#">Fine-knit sweater</a>
-                                            </h6>
-                                            <div class="product-price">
-                                                <span class="text-primary">$28.<small>50</small></span>
-                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-card-1">
-                                        <div class="product-card-image">
-                                            <div class="badge-ribbon">
-                                                <span class="badge bg-danger">Sale</span>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-heart"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-repeat"></i>
-                                                </a>
-                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
-                                                    <i class="fi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-media">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="{{asset('customer/img/frontimage/b3.jpg')}}" style="width:300px;" title="" alt="">
-                                                </a>
-                                                <div class="product-cart-btn">
-                                                    <a href="#" class="btn btn-primary btn-sm w-100">
-                                                        <i class="fi-shopping-cart"></i>
-                                                        Add to cart
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-card-info">
-                                            <div class="product-meta small">
-                                                <a href="#">Clothing</a>, <a href="#">Men</a>
-                                            </div>
-                                            <div class="rating-star text">
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star"></i>
-                                            </div>
-                                            <h6 class="product-title">
-                                                <a href="#">Fine-knit sweater</a>
-                                            </h6>
-                                            <div class="product-price">
-                                                <span class="text-primary">$28.<small>50</small></span>
-                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-card-1">
-                                        <div class="product-card-image">
-                                            <div class="badge-ribbon">
-                                                <span class="badge bg-danger">Sale</span>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-heart"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-repeat"></i>
-                                                </a>
-                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
-                                                    <i class="fi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-media">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="{{asset('customer/img/frontimage/b4.jpg')}}" title="" alt="">
-                                                </a>
-                                                <div class="product-cart-btn">
-                                                    <a href="#" class="btn btn-primary btn-sm w-100">
-                                                        <i class="fi-shopping-cart"></i>
-                                                        Add to cart
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-card-info">
-                                            <div class="product-meta small">
-                                                <a href="#">Clothing</a>, <a href="#">Men</a>
-                                            </div>
-                                            <div class="rating-star text">
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star"></i>
-                                            </div>
-                                            <h6 class="product-title">
-                                                <a href="#">Fine-knit sweater</a>
-                                            </h6>
-                                            <div class="product-price">
-                                                <span class="text-primary">$28.<small>50</small></span>
-                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-card-1">
-                                        <div class="product-card-image">
-                                            <div class="badge-ribbon">
-                                                <span class="badge bg-danger">Sale</span>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-heart"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-repeat"></i>
-                                                </a>
-                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
-                                                    <i class="fi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-media">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="{{asset('customer/img/frontimage/b7.jpg')}}" title="" alt="">
-                                                </a>
-                                                <div class="product-cart-btn">
-                                                    <a href="#" class="btn btn-primary btn-sm w-100">
-                                                        <i class="fi-shopping-cart"></i>
-                                                        Add to cart
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-card-info">
-                                            <div class="product-meta small">
-                                                <a href="#">Clothing</a>, <a href="#">Men</a>
-                                            </div>
-                                            <div class="rating-star text">
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star"></i>
-                                            </div>
-                                            <h6 class="product-title">
-                                                <a href="#">Fine-knit sweater</a>
-                                            </h6>
-                                            <div class="product-price">
-                                                <span class="text-primary">$28.<small>50</small></span>
-                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-card-1">
-                                        <div class="product-card-image">
-                                            <div class="badge-ribbon">
-                                                <span class="badge bg-danger">Sale</span>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-heart"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-repeat"></i>
-                                                </a>
-                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
-                                                    <i class="fi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-media">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="{{asset('template/dist/assets/img/s7.jpg')}}" title="" alt="">
-                                                </a>
-                                                <div class="product-cart-btn">
-                                                    <a href="#" class="btn btn-primary btn-sm w-100">
-                                                        <i class="fi-shopping-cart"></i>
-                                                        Add to cart
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-card-info">
-                                            <div class="product-meta small">
-                                                <a href="#">Clothing</a>, <a href="#">Men</a>
-                                            </div>
-                                            <div class="rating-star text">
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star"></i>
-                                            </div>
-                                            <h6 class="product-title">
-                                                <a href="#">Fine-knit sweater</a>
-                                            </h6>
-                                            <div class="product-price">
-                                                <span class="text-primary">$28.<small>50</small></span>
-                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="product-card-1">
-                                        <div class="product-card-image">
-                                            <div class="badge-ribbon">
-                                                <span class="badge bg-danger">Sale</span>
-                                            </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-heart"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-repeat"></i>
-                                                </a>
-                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
-                                                    <i class="fi-eye"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-media">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="{{asset('template/dist/assets/img/s9.jpg')}}" title="" alt="">
-                                                </a>
-                                                <div class="product-cart-btn">
-                                                    <a href="#" class="btn btn-primary btn-sm w-100">
-                                                        <i class="fi-shopping-cart"></i>
-                                                        Add to cart
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-card-info">
-                                            <div class="product-meta small">
-                                                <a href="#">Clothing</a>, <a href="#">Men</a>
-                                            </div>
-                                            <div class="rating-star text">
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star"></i>
-                                            </div>
-                                            <h6 class="product-title">
-                                                <a href="#">Fine-knit sweater</a>
-                                            </h6>
-                                            <div class="product-price">
-                                                <span class="text-primary">$28.<small>50</small></span>
-                                                <del class="fs-sm text-muted">$38.<small>50</small></del>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-pagination mt-4 d-lg-none position-relative"></div>
-                        </div>
-                        <div class="swiper-arrow-style-02 swiper-next swiper-next-02"><i class="bi-chevron-right"></i> </div>
-                        <div class="swiper-arrow-style-02 swiper-prev swiper-prev-02"><i class="bi-chevron-left"></i></div>
-                    </div>
-                </div>
-            </section>
-
-                    </br>
+              </br>
 
                     <section class="section">
                 <div class="container">
@@ -840,22 +495,22 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/moose.png')}}" title="" alt="">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/moose.png')}}" style="height:100px; width:200px;" title="" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/vintage.png')}}" title="" alt="">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/vintage.png')}}" style="height:100px; width:200px;" title="" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand3.jpeg')}}" title="" alt="">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand3.jpeg')}}" style="height:100px; width:200px;" title="" alt="">
                                     </a>
                                 </div>
                                 <div class="swiper-slide">
                                     <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand4.jpeg')}}" title="" alt="">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand4.jpeg')}}" style="height:100px; width:200px;" title="" alt="">
                                     </a>
                                 </div>
                                 

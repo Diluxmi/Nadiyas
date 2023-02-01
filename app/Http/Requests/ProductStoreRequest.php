@@ -30,6 +30,7 @@ class ProductStoreRequest extends FormRequest
             'category_id'         =>    'required',
             'brand'               =>    'nullable',
             'size'                =>    'required',
+            'description'         =>    'nullable',
             'coller'              =>    'nullable',
             'sleeve'              =>    'nullable',
             'material'            =>    'nullable',

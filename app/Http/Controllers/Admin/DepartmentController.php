@@ -35,13 +35,17 @@ class DepartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(DepartmentStoreRequest $request)
-    {
+    {try{
         $data=$request->validated();
         $department = Department::create([
             'name'=>$data['name'],
-        ]);
+    ]);
         return redirect()->route('department.index')->with('success','Department has been created successful!'); 
+        }catch(\Illuminate\Database\QueryException $e){
+        return redirect()->back()->with('error','You cannot create same DEpartment details again');
+        }
     }
+
 
     /**
      * Display the specified resource.

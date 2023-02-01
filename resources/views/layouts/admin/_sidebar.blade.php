@@ -30,12 +30,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                
+              
                 <li class="nav-item">
-                  <a class="nav-link" href="">Admin</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="">Customer</a>
+                  <a class="nav-link" href="{{route('user.index')}}">Customer</a>
                 </li>
               </ul>
             </div>
@@ -75,10 +72,38 @@
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="{{route('photo.index')}}">
+              <i class="mdi mdi-pencil"></i>
+              <span class="menu-title">Product Photos</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="mdi mdi-crosshairs-gps menu-icon"></i>
-              <span class="menu-title">Order</span>
+              <i class="mdi mdi-pencil"></i>
+              <span class="menu-title">Reports</span>
               <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="">Sales Report</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Order Report</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Stock Report</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <span class="menu-title">Order</span>
+                <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
@@ -94,40 +119,5 @@
               </ul>
             </div>
           </li>
-
-
-          <li class="nav-item">
-            <a class="nav-link" href="">
-              <i class="mdi mdi-note"></i>
-              <span class="menu-title">Report </span>
-            </a>
-          </li>
-         
-         
-
-         
-       
-          <li class="nav-item ">
-             
-             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-             
-             <div class="nav-profile-text"><span class="menu-title">SignOut</span></div>
-
-             </a>
-            
-             <div class="dropdown-menu center navbar-dropdown" aria-labelledby="profileDropdown">
-             <a class="dropdown-item" href="#">
-             
-               <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                     @csrf
-                 </form>
-               <i class="mdi mdi-logout mr-2 text-primary"></i> Logout </a>
-             
-             </div>
-           </li>
-
         </ul>
       </nav>

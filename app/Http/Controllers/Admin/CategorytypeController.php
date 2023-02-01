@@ -43,13 +43,18 @@ class CategorytypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CategorytypeStoreRequest $request)
-    {
+    {try{
         $data = $request->validated();
         $categorytype=Categorytype::create([
             'name'=>$data['name'],
             'department_id'=>$data['department_id'],
         ]);
         return redirect()->route('categorytype.index')->with('success','category type has been created successful!');
+    }
+     catch(\Illuminate\Database\QueryException $e){
+
+        return redirect()->back()->with('error','You cannot create same Categorytype details again');
+    }
     }
 
     /**
@@ -85,19 +90,18 @@ class CategorytypeController extends Controller
     public function update(CategorytypeUpdateRequest $request, Categorytype $categorytype)
     {
         $data=$request->validated();
-        $category->update($data);
+        $categorytype->update($data);
 
         return redirect()->route('categorytype.index')->with('success','Categorytype has been updated successful!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Categorytype  $categorytype
-     * @return \Illuminate\Http\Response
-     */
+    public function delete(Categorytype $categorytype){
+        return view('admin.categorytype.delete',compact('categorytype'));
+    }
+
     public function destroy(Categorytype $categorytype)
     {
-        //
+        $categorytype->delete();
+        return redirect()->route('categorytype.index')->with('success','Categorytype has been delete successfull!');
     }
 }

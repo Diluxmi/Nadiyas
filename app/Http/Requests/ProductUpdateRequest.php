@@ -31,6 +31,7 @@ class ProductUpdateRequest extends FormRequest
             'categorytype_id'     =>    'required',
             'brand'               =>    'nullable',
             'size'                =>    'required',
+            'description'         =>    'nullable',
             'coller'              =>    'nullable',
             'sleeve'              =>    'nullable',
             'material'            =>    'nullable',

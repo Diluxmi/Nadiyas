@@ -40,6 +40,7 @@
                             <td>
                                 <a href="{{route('department.show',$department->id)}}" class="btn btn-primary"><span class="text">Show</span></a>
                                 <a href="{{route('department.edit',$department->id)}}" class="btn btn-dark"><span class="text"><i class="mdi mdi-file-check btn-icon-append"></i>Edit</span></a>
+                                <a href="{{route('department.delete',$department->id)}}" class="btn btn-danger"><span class="text"><i class="mdi mdi-file-check btn-icon-append"></i>Delete</span></a>
                                 
                               </td>
                           </tr>

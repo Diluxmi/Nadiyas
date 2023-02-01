@@ -16,7 +16,7 @@ use App\Http\Controllers\Admin\CartController;
 use App\Http\Controllers\Admin\ProductdetailController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategorytypeController;
-
+use App\Http\Controllers\Admin\PhotoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,10 +30,10 @@ use App\Http\Controllers\Admin\CategorytypeController;
 
     Route::group(['prefix'=>''],function(){
         Route::get('/',[WelcomeController::class,'index'])->name('welcome');
+        Route::get('/autocomplete-search', [WelcomeController::class, 'autocompleteSearch'])->name('autocomplete.search');
     });
 
 Auth::routes();
-
 
 Route::group(['prefix' => 'home', 'middleware' => 'auth', 'namespace' => 'Admin'], function () {
     Route::get('/', [HomeController::class,'index'])->name('home');
@@ -98,17 +98,26 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
     });
     });
 
-    Route::group(['prefix'=>'customer'],function(){
-        Route::get('/',[CustomerController::class,'index'])->name('customer.index');
-    });
+    
 
     Route::group(['prefix'=>'productview'],function(){
         Route::get('ajaxRequest3',[ProductviewController::class,'index'])->name('productview.index');
     
     Route::group(['prefix'=>'{product}'],function(){
         Route::get('/show',[ProductviewController::class,'show'])->name('productview.show');
+    
     });
+});
+    Route::group(['prefix'=>'carts/{product}'],function(){
+        Route::get('cart', [CartController::class, 'cartList'])->name('cart.index');
+        Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+        Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+        Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+        Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
     });
+   
+
+
 
     Route::group(['prefix'=>'order'],function(){
         Route::get('/',[OrderController::class,'index'])->name('order.index');
@@ -130,17 +139,18 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
         Route::get('/',[ProductdetailController::class,'index'])->name('productdetail.index');
     });
 
+  
+   
 
-    Route::group(['prefix'=>'cart'],function(){
-        Route::get('/', [CartController::class, 'index'])->name('cart.index');
-        Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
-        Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
-        Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
-        Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
-});
 
 Route::group(['prefix'=>'user'],function(){
     Route::get('/',[UserController::class,'index'])->name('user.index');
+
+Route::group(['prefix'=>'{customer}'],function(){
+    Route::get('/show',[UserController::class,'show'])->name('user.show');
+    Route::get('/delete',[UserController::class,'delete'])->name('user.delete');
+    Route::delete('/destroy',[UserController::class,'destroy'])->name('user.destroy');
+});
 });
 
 Route::group(['prefix'=>'categorytype'],function(){
@@ -159,6 +169,17 @@ Route::group(['prefix'=>'{categorytype}'],function(){
     });  
   
 });
+
+Route::group(['prefix'=>'photo'],function(){
+    Route::get('/',[PhotoController::class,'index'])->name('photo.index');
+    Route::get('/create',[PhotoController::class,'create'])->name('photo.create');
+    Route::post('/store',[PhotoController::class,'store'])->name('photo.store');
+});
+
+Route::group(['prefix'=>'customer'],function(){
+    Route::get('/',[CustomerController::class,'index'])->name('customer.index');
+});
+
 
   
     

@@ -47,9 +47,11 @@ class CustomAuthController extends Controller
     
             $request->validate([
                 'title'=>'required',
-               'name' => ['required', 'string', 'max:255'],
+                'name' => ['required', 'string', 'max:255'],
                 'address' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'image'=>['nullable','string'],
+                'actual_filename'=>['nullable','string'],
                 'phonenumber' =>['required','regex:/^([0-9\s\-\+\(\)]*)$/','min:10'], /// meaning of regex
                 'password' => ['required','confirmed'],
             ]);

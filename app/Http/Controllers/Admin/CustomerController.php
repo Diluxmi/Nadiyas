@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Department;
 use App\Models\Category;
 use App\Models\Role;
+use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests\ProductStoreRequest;
@@ -15,10 +17,12 @@ use App\Http\Requests\ProductUpdateRequest;
 class CustomerController extends Controller
 {
    
-    public function index()
+    public function index( Customer $customer)
+    
     {
         $departments = Department::all();
-        return view('admin.customer.index',compact('departments'));
+        
+        return view('admin.customer.index');
     }
 
     
@@ -37,13 +41,26 @@ class CustomerController extends Controller
     {
         $data =$request->validated();
 
+            if($request->has('image')){
+                $file =$request->file('image');
+                $name = $file->getClientOriginalName();
+                $filenmae = date('YmdHi').$file->getClientOriginalName();
+
+                $extension = $file->getClientOriginalExtension();
+                $path = $request->file('image')->store('images','public');
+
+            }
         $customer =Customer::create([
             'title'=>$data['title'],
             'name'=>$data['name'],
             'address'=>$data['address'],
             'phonenumber'=>$data['phonenumber'],
+            'image'=>$path,
+            'actual_filename'=>$name,
+            'extension'=>$extension,
         
         ]);
+        
         return redirect()->route('customer.index')-with('success','customer has been created successful!');
     }
     

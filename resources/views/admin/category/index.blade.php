@@ -8,14 +8,11 @@
       <div class="card-header rounded border-primary">
         <div class="float-start">
           <h2>Category</h2>
-    </div>
-        <div class ="float-end">
-      
-        
-    <a class="btn btn-primary btn-icon-spilt" href ="{{route('category.create')}}"> Create Category</a>
-
         </div>
-</div>
+        <div class ="float-end">
+          <a class="btn btn-primary btn-icon-spilt" href ="{{route('category.create')}}"> Create Category</a>
+        </div>
+      </div>
         <br>
 
         <div class="card-body">
@@ -28,6 +25,7 @@
                       <table class="table">
                     <tr>
                       <th> Department</th>
+                      <th>Category type</th>
                       <th>Category </th>
                     
                       <th>Action</th>
@@ -36,7 +34,9 @@
                           @foreach($categories as $category)
                           <tr>
                             <td>{{$category->department->name}}</td>
+                           <td> {{$category->categorytype->name}}</td>
                             <td>{{$category->name}}</td>
+                            
                             <td>
                                 <a href="{{route('category.show',[$category->id])}}" class="btn btn-primary"><span class="text">Show</span></a>
                                 <a href="{{route('category.edit',[$category->id])}}" class="btn btn-dark"><span class="text"><i class="mdi mdi-file-check btn-icon-append"></i>Edit</span></a>

@@ -27,23 +27,12 @@
         <!-- End Header -->
         <!-- Main -->
         <main>
-            <!-- Breadcrumb -->
-            <div class="py-3 bg-gray-100">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 my-2">
-                            <h1 class="m-0 h4 text-center text-lg-start">About</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Breadcrumb -->
-            <!-- Section -->
+           
             <section class="section">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 my-3">
-                            <img src="{{asset('customer/img/nadiyas logo.png')}}" style="width:300px;" alt="" title="" class="img-fluid">
+                            <img src="{{asset('customer/img/nadiyasj.jpg')}}" style="width:500px;" alt="" title="" class="img-fluid">
                         </div>
                         <div class="col-lg-6 ps-lg-8 my-3">
                             <h6 class="mb-3 text-gray-400">
@@ -51,8 +40,8 @@
                             </h6>
                             <h2 class="mb-4">About our Textile</h2>
                             <p>Nadiyas is a trendy fashionable textile based in Nawalapitiya, Srilanka. which has led the trendy lifestyle industry for the last three decades. 
-                            This industry provides fashionable and new technology products in six locations. 
-For that Nawalapitiya,Gampola,Matale,Kandy,Kurunagala,Polonnaruwa.They have 50000 loyal customer.
+                            This industry provides fashionable and new technology products in six locations. </p>
+<p>For that Nawalapitiya,Gampola,Matale,Kandy,Kurunagala,Polonnaruwa.They have 50000 loyal customer.
 </p>
                         </div>
                     </div>
@@ -95,11 +84,12 @@ For that Nawalapitiya,Gampola,Matale,Kandy,Kurunagala,Polonnaruwa.They have 5000
                         </div>
                     </div>
                     <div class="row g-3">
+                       
                         <div class="col-lg-3 col-sm-6">
-                            <div class="card">
+                            <div class="card" >
                                 <img class="img-fluid card-img-top" src="../../assets/img/pages/1000x1000.jpg" alt="">
                                 <div class="card-body">
-                                    <h4 class="h6 mb-1">Julianne Moore</h4>
+                                    <h4 class="h6 mb-1">Thanuskodi Sanmugasundharam</h4>
                                     <p class="mb-2">CEO &amp; Founder </p>
                                     <div class="nav dark-link">
                                         <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
@@ -119,53 +109,7 @@ For that Nawalapitiya,Gampola,Matale,Kandy,Kurunagala,Polonnaruwa.They have 5000
                             </div>
                         </div>
                         <div class="col-lg-3 col-sm-6">
-                            <div class="card">
-                                <img class="img-fluid card-img-top" src="../../assets/img/pages/1000x1000.jpg" alt="">
-                                <div class="card-body">
-                                    <h4 class="h6 mb-1">Julianne Moore</h4>
-                                    <p class="mb-2">CEO &amp; Founder </p>
-                                    <div class="nav dark-link">
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-facebook"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-twitter"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-instagram"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-linkedin"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card">
-                                <img class="img-fluid card-img-top" src="../../assets/img/pages/1000x1000.jpg" alt="">
-                                <div class="card-body">
-                                    <h4 class="h6 mb-1">Julianne Moore</h4>
-                                    <p class="mb-2">CEO &amp; Founder </p>
-                                    <div class="nav dark-link">
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-facebook"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-twitter"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-instagram"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-linkedin"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card">
+                            <div class="card" align="center">
                                 <img class="img-fluid card-img-top" src="../../assets/img/pages/1000x1000.jpg" alt="">
                                 <div class="card-body">
                                     <h4 class="h6 mb-1">Julianne Moore</h4>
@@ -271,9 +215,9 @@ For that Nawalapitiya,Gampola,Matale,Kandy,Kurunagala,Polonnaruwa.They have 5000
                                         <div class="d-inline-block mb-4">
                                             <img class="rounded-circle" src="../../assets/img/pages/1000x1000.jpg" title="" alt="" width="100">
                                         </div>
-                                        <p>Smaze is a professionally built HTML template. It offers creative design and can be adapted to suit your design or theme in seconds.. I have personally chatted to the author, who is very professional and extremely helpful. If you're looking for a clean html template that works for many projects, then please choose Smaze.. A firm full rating! We need more committed authors like pxdraft! Thank you very much..</p>
-                                        <h5 class="m-0 pt-2">Nancy Drew</h5>
-                                        <span class="small">Director at XDesign</span>
+                                        <p>Hi my name is Vihansa Jayathilaka and I was went your shop one day and I bought some dresses. Really I exited.because I was found fantastic collection on your shop. I just wanted to say that There was great customer service on Nadiya's textile and everyone else there was so friendly and helpful. </p>
+                                        <h5 class="m-0 pt-2">Vihansa Jayathilaka</h5>
+                                        
                                     </div>
                                 </div>
                                 <div class="swiper-slide">

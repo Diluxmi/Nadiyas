@@ -21,8 +21,11 @@ return new class extends Migration
             $table->string('subcategory');
             $table->timestamps();
 
-             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
-             $table->foreign('categorytype_id')->references('id')->on('categorytypes')->onDelete('cascade');
+            $table->unique(['name','department_id','categorytype_id']);//composite key
+            $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
+            $table->foreign('categorytype_id')->references('id')->on('categorytypes')->onDelete('cascade');
+            
+             
             });
     }
 

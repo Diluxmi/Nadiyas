@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable();
+            $table->string('actual_filename')->nullable();
+            $table->string('extension')->nullable();
+            $table->foreignId('product_id');
             $table->timestamps();
+
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
         });
     }
 

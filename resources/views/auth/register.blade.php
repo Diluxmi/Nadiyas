@@ -23,65 +23,71 @@
         </div>
     </div>
     <div class="section">
-                <div class="container">
-                    <div class="justify-content-center row">
-                        <div class="col-lg-10 col-xxl-6">
-                            <div class="card">
-                                <div class="card-header bg-transparent py-3">
-                                    <h3 class="h4 mb-0">Register </h3>
-                                </div>
-                                <div class="card-body">
-                        <form method="POST" action="{{ route('register.custom') }}">
-                      @csrf
-                                        <div class="row">
-                                        <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                {!!Form::select('title','Title' ,['miss'=>'Miss','mr'=>'Mr','mrs'=>'Mrs'])!!}
-                                                   
-                                                </div>
-                                            </div>
+    <div class="container">
+        <div class="justify-content-center row">
+            <div class="col-lg-10 col-xxl-6">
+                <div class="card">
+                    <div class="card-header bg-transparent py-3">
+                        <h3 class="h4 mb-0">Register </h3>
+                    </div>
+                    <div class="card-body">
+            <form method="POST" action="{{ route('register.custom') }}">
+            @csrf
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group mb-3">
+                        {!!Form::select('title','Title' ,['miss'=>'Miss','mr'=>'Mr','mrs'=>'Mrs'])!!}
+                        </div>
+                    </div>
 
-                                            <div class="col-md-8">
-                                                <div class="form-group mb-3">
-                                                {!!Form::text('name','Full Name')!!}
-                                                </div>
-                                            </div>
+                    <div class="col-md-8">
+                        <div class="form-group mb-3">
+                        {!!Form::text('name','Full Name')!!}
+                        </div>
+                    </div>      
+                </div>
                                           
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                {!!Form::text('address','Address')!!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                             <div class="col-md-6">
-                                                <div class="form-group mb-3">
-                                                {!!Form::text('phonenumber','Mobile Number')!!}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                             <div class="col-md-6">
-                                                <div class="form-group mb-3">
-                                                {!!Form::text('email','email')!!}
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group mb-3">
+                        {!!Form::text('address','Address')!!}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                        <div class="form-group mb-3">
+                        {!!Form::text('phonenumber','Mobile Number')!!}
+                        </div>
+                    </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                            {!!Form::text('email','email')!!}
+                            </div>
+                        </div>
+                    </div>
 
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group mb-3">
-                                                {!!Form::text('password','Password')->type('password')!!}
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-check mb-3">
-                                                {!! Form::text('password_confirmation', 'Confirm Password')->type('password') !!}
-                                                </div>
-                                            </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                            {!!Form::text('password','Password')->type('password')!!}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check mb-3">
+                            {!! Form::text('password_confirmation', 'Confirm Password')->type('password') !!}
+                            </div>
+                        </div>
+                    </div>
+                      <br>              
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group mb-3">
+                                            {!!Form::file('image','Image')!!}
+                                            </div>  
                                         </div>
-                                        
+                                    </div>
+                                       <br> 
                                         <div class="form-group row align-items-center">
                                             <div class="col-6">
                                                 <button type="submit" class="btn btn-primary">

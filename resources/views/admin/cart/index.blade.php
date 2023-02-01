@@ -9,13 +9,21 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-6 my-2">
-                            <h1 class="m-0 h4 text-center text-lg-start">Shopping Cart</h1>
+                            <h1 class="m-0 h4 text-center text-lg-start">Shopping cart</h1>
+
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End Breadcrumb -->
             <!-- Cart Table -->
+            <div class="card-body">
+          @if (session('success'))
+        <div class="alert alert-success">
+          {{ session('success') }}
+        </div>
+        @endif
+
             <div class="py-6">
                 <div class="container">
                     <!-- Cart Table -->
@@ -31,12 +39,15 @@
                                     <th class="text-dark fw-500 text-end text-nowrap">action</th>
                                 </tr>
                             </thead>
+
+
                             <tbody>
-                                @foreach($products as $product)
+                               
+                                @foreach($cartItems as $cartItem)
                                 <tr>
-                                    <td class="text-center product-thumbnail"><img src="{{url('public/images/'.$product->image)}}"  style="height:120px; width:100px;"></td>
-                                    <td class="text-center product-thumbnail"> {{$product->name}}</td>
-                                    <td class="text-center product-thumbnail"> Rs.{{$product->price}}</td>
+                                <td class="text-center product-thumbnail"><img src="{{asset('storage/'.$product->image)}}"  style="height:120px; width:100px;"></td>
+                                    <td class="text-center product-thumbnail"> {{$cartItem->name}}</td>
+                                    <td class="text-center product-thumbnail"> Rs.{{$cartItem->price}}</td>
                                     <td class="text-center product-quantity">
                                         <div class="cart-qty d-inline-flex">
                                             <div class="dec qty-btn qty_btn">-</div>
@@ -44,20 +55,30 @@
                                             <div class="inc qty-btn qty_btn">+</div>
                                         </div>
                                     </td>
-                                    <td class="text-center product-thumbnail"> subtotal</td>
+                                    <td class="text-center product-thumbnail"></td>
                                     <td class="product-remove text-end text-nowrap">
-                                        <a href="#" class="btn btn-sm btn-outline-secondary text-nowrap px-3"><i class="bi bi-pencil-square lh-1"></i> <span class="d-none d-md-inline-block">Edit</span></a>
-                                        <a href="#" class="btn btn-sm btn-outline-danger text-nowrap px-3"><i class="bi bi-x lh-1"></i> <span class="d-none d-md-inline-block">Remove</span></a>
+                                        
+                                    <form action="{{ route('cart.update',$product->id) }}" method="POST" >
+                                        @csrf
+                                        <input type="hidden" value="{{$product->id}}" name="id">
+                                        <button class="btn btn-sm btn-outline-secondary text-nowrap px-3"><i class="bi bi-pencil-square lh-1"></i><span class="d-none d-md-inline-block">Edit</span></button>
+                                    </form>
+                                    
+                                    <form action="{{ route('cart.remove',$product->id) }}" method="POST" >
+                                        @csrf
+                                        <input type="hidden" value="{{$product->id}}" name="id">
+                                        <button class="btn btn-sm btn-outline-danger text-nowrap px-3"><i class="bi bi-x lh-1"></i> <span class="d-none d-md-inline-block">Remove</span></button>
+                                    </form>
                                     </td>
                                 </tr>
-                                @endforeach
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
                     <!-- Cart Table -->
                     <div class="d-flex">
                         <div>
-                            <a class="btn btn-outline-dark" href="#">
+                            <a class="btn btn-outline-dark" href="{{route('welcome')}}">
                                 <i class="ci-arrow-left mt-sm-0 me-1"></i>
                                 <span class="d-none d-sm-inline">Continue Shopping</span>
                                 <span class="d-inline d-sm-none">Back</span>

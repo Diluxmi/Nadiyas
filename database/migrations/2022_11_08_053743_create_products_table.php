@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->foreignId('categorytype_id');
             $table->string('name');
+            $table->string('description')->nullable();
             $table->string('brand')->nullable();
             $table->string('size');
             $table->string('coller')->nullable();

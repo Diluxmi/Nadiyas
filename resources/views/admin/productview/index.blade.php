@@ -125,10 +125,6 @@
                 <label class="custom-control-label" for="brand3">Puma</label>
             </li>
             <li class="custom-checkbox">
-                <input class="custom-control-input" id="brand4" type="checkbox" disabled="">
-                <label class="custom-control-label" for="brand4">Roadster</label>
-            </li>
-            <li class="custom-checkbox">
                 <input class="custom-control-input" id="brand5" type="checkbox">
                 <label class="custom-control-label" for="brand5">Converse</label>
             </li>
@@ -192,50 +188,38 @@
                                         <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
                                         <i class="fi-eye"></i></a>
                                     </div>
-                                    <div class="product-media">
+                                     <div class="product-media"> 
                                         <a href="{{route('productview.show',$product->id)}}">
                                             <img class="img-fluid" src= "{{asset('storage/'.$product->image)}}" style="height:300px; width:300px;" title="" alt="">
                                         </a>
-                                    <div class="product-cart-btn">
-                                        <a href="{{route('cart.index')}}" class="btn btn-primary btn-sm w-100">
-                                            <i class="fi-shopping-cart"></i>Add to cart</a>
-                                    </div>
+
+                                        <form method="Post" action="{{route('cart.store',[$product->id,$customer->id])}}" enctype="multipart/form-data">            
+                                        <input type="hidden" value="{{ $product->id }}" name="id">
+                                        <input type="hidden" value="{{ $product->name }}" name="name">
+                                        <input type="hidden" value="{{ $product->price }}" name="price">
+                                        <input type="hidden" value ="{{$product->image}}"  name="image">
+                                        <input type="hidden" value="1" name="quantity">
+                                        <div class="product-cart-btn">
+                                            <button class="btn btn-primary btn-sm w-100">
+                                            <i class="fi-shopping-cart"></i>Add to cart</button>
+                                        </div>
+                                        @csrf
+                                        </form>
+                                       
                                 </div>
                             </div>
                                 <div class="product-card-info">
-                                    <div class="product-meta small">
-                                        <a href="#">Clothing</a>, <a href="#">Men</a>
-                                    </div>
-                                    <div class="rating-star text">
-                                        <i class="bi bi-star-fill active"></i>
-                                        <i class="bi bi-star-fill active"></i>
-                                        <i class="bi bi-star-fill active"></i>
-                                        <i class="bi bi-star-fill active"></i>
-                                        <i class="bi bi-star"></i>
-                                    </div>
+                                   
                                     <h6 class="product-title">
-                                        <a href="#">Fine-knit sweater</a>
+                                        <a href="#">{{$product->name}}</a>
                                     </h6>
                                     <div class="product-price">
-                                        <span class="text-primary">$28.<small>50</small></span>
-                                        <del class="fs-sm text-muted">$38.<small>50</small></del>
+                                        <span class="text-primary">Rs.{{$product->price}}</span>   
                                     </div>
                                     <div class="nav-thumbs">
                                     <div class="form-check radio-text form-check-inline">
                                         <input class="form-check-input" type="radio" name="size3" id="btnradio1" checked>
-                                        <label class="radio-text-label" for="btnradio1">XS</label>
-                                    </div>
-                                    <div class="form-check radio-text form-check-inline">
-                                        <input class="form-check-input" type="radio" name="size3" id="btnradio2">
-                                        <label class="radio-text-label" for="btnradio2">S</label>
-                                    </div>
-                                    <div class="form-check radio-text form-check-inline">
-                                        <input class="form-check-input" type="radio" name="size3" id="btnradio3">
-                                        <label class="radio-text-label" for="btnradio3">M</label>
-                                    </div>
-                                    <div class="form-check radio-text form-check-inline">
-                                        <input class="form-check-input" type="radio" name="size3" id="btnradio4">
-                                        <label class="radio-text-label" for="btnradio4">L</label>
+                                        <label class="radio-text-label" for="btnradio1">{{$product->size}}</label>
                                     </div>
                                 </div>
                             </div>
@@ -273,5 +257,4 @@
             </section>
         
         </main>
-        
-@endsection
+        @endsection

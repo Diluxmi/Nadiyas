@@ -17,8 +17,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $categories = Category::with('department')->orderBy('id','asc')->paginate('12');
+    public function index(Category $category){
+        $categories = Category::all();
         return view('admin.category.index',compact('categories'));
     }
 
@@ -47,7 +47,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryStoreRequest $request)
-    {
+    {try{
         $data = $request->validated();
         $category=Category::create([
             'name'=>$data['name'],
@@ -56,7 +56,9 @@ class CategoryController extends Controller
             'categorytype_id'=>$data['categorytype_id'],
         ]);
         return redirect()->route('category.index')->with('success','category has been created successful!');
-
+    }catch(\Illuminate\Database\QueryException $e){
+        return redirect()->back()->with('error','You cannot create same Category details again');
+    }
     }
 
     /**

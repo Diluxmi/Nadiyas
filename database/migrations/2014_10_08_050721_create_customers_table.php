@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phonenumber');
+            $table->string('image')->nullable();
+            $table->string('actual_filename')->nullable();
+            $table->string('extension')->nullable();
 
             $table->timestamps();
         });

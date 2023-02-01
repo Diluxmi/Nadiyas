@@ -6,7 +6,6 @@
 <script src="{{asset('customer/vendor/count-down/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('customer/vendor/jarallax/jarallax-all.js')}}"></script>
 <script src="{{asset('customer/js/custom.js')}}"></script>
-<script src="{{asset('customer/js/theme.js')}}"></script>
 
 <script>
   function listcategories(department,category){
@@ -37,3 +36,21 @@
             } 
           } 
 </script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
+  </script>
+  <script type="text/javascript">
+    var route = "{{url('autocomplete.search')}}";
+        $('#search').typeahead({ 
+            source: function (query, process) {
+              console.log(1);
+                return $.get(route, {
+                    query: query
+                }, function (data) {
+                    return process(data);
+                });
+            }
+        });
+    </script>
+  

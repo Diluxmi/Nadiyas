@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+ 
+
+
 class customer extends Model
 {
     use HasFactory;
@@ -13,6 +16,9 @@ class customer extends Model
         'name',
         'address',
         'phonenumber',
+        'image',
+        'actual_filename',
+        'extension',
 
     ];
 
@@ -23,4 +29,6 @@ class customer extends Model
     public function order(){
       return $this->hasMany(Order::class,'order_id'); 
     }
+
+    
 }

@@ -84,14 +84,10 @@ class ProductController extends Controller
         $path=$request->file('image')->store('images','public');
     }
     
-       
-   
-
-
-
-      $product =Product::create([
+    $product =Product::create([
         'name'=>$data['name'],
         'size'=>$data['size'],
+        'description'=>$data['description'],
         'brand'=>$data['brand'],
         'coller'=>$data['coller'],
         'colour'=>$data['colour'],
@@ -150,7 +146,7 @@ class ProductController extends Controller
         
         $product->updated($data);
        
-        return redirect()->route('product.index',compact('product'))->with('success','Product has been created successful!');
+        return redirect()->route('product.index',compact('product'))->with('success','Product has been update successful!');
     }
 
     public function delete(Product $product){

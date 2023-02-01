@@ -16,12 +16,14 @@
         <h3> Create Category Type</h3>
                 </div>
             </div>
+            
+
             <div class="card-body">
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                    @endif
+                @if(session('error'))
+                <div class="alert alert-warning">
+                    {{session('error')}}
+                </div>
+                @endif
                     <form method="Post" action="{{ route('categorytype.store')}}" enctype="multipart/form-data">
                     
                     @csrf

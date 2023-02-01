@@ -40,7 +40,7 @@
                             <td>
                                 <a href="{{route('categorytype.show',$categorytype->id)}}" class="btn btn-primary"><span class="text">Show</span></a>
                                 <a href="{{route('categorytype.edit',$categorytype->id)}}" class="btn btn-dark"><span class="text"><i class="mdi mdi-file-check btn-icon-append"></i>Edit</span></a>
-                                <a href="" class="btn btn-danger"><span class="text">Delete</span></a>
+                                <a href="{{route('categorytype.delete',$categorytype->id)}}" class="btn btn-danger"><span class="text">Delete</span></a>
                               </td>
                           </tr>
                         

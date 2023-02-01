@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 
 class Product extends Model
@@ -14,6 +15,7 @@ class Product extends Model
         'brand',
         'size',
         'colour',
+        'description',
         'sleeve',
         'material',
         'material_style',
@@ -28,6 +30,8 @@ class Product extends Model
         'extension',
     ];
 
+    public $sortable = ['id', 'name', 'details', 'created_at', 'updated_at'];
+
     public function department(){
         return $this->belongsTo(Department::class,'department_id');
     }
@@ -38,6 +42,12 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class,'category_id');
     }
+
+    public function photo(){
+        return $this->hasMany(Photo::class,'product_id');
+    }
+   
+
     public function orderitem(){
         return $this->hasMany(Orderitem::class,'order_id');
     }
