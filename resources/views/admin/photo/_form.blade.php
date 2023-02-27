@@ -5,10 +5,6 @@
 
 <div class="col-6">
     {!!Form::file('image','Image')!!}
-
 </div>
-
-
-
 </div>
 

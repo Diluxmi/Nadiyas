@@ -83,4 +83,5 @@ class CustomAuthController extends Controller
     
             return redirect(RouteServiceProvider::HOME);
         }
+
     }

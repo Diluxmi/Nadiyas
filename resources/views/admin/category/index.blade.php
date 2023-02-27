@@ -15,12 +15,25 @@
       </div>
         <br>
 
+        
         <div class="card-body">
     @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
     @endif
+    <div class="float-end">
+        <form class="d-flex align-items-center" action="{{route('category.index')}}" method="Get">
+            <div class="input-group">
+            <div class="input-group-prepend">
+               {!! Form::text('q','',request()->input('q'))->placeholder('Search by Product.....')!!}         
+            <button class="btn btn-primary" type="submit">Search</button>
+            <a href="{{route('product.index')}}" class="btn btn-secondary"><span class="text">Back</span></a>
+            </div>
+            </div>
+              {!! Form::close() !!}
+        </form>
+        </div>
      
                       <table class="table">
                     <tr>

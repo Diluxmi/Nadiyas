@@ -31,7 +31,7 @@
                             <i class="bi bi-box-arrow-in-left"></i>
                         </div>
                         <div class="col ps-3">
-                            <h6 class="mb-1 text-white">30 Days Return</h6>
+                            <h6 class="mb-1 text-white">7 Days Return</h6>
                             <p class="m-0 text-white-50 small">Accepting Returns</p>
                         </div>
                     </div>
@@ -68,25 +68,36 @@
                                 
                                 <a class="me-3" href="https://instagram.com/nadiyastextile?igshid=YmMyMTA2M2Y="><i class="bi bi-instagram"></i>
                             </a><a class="me-3" href="#"><i class="bi bi-linkedin"></i></a>
+                            
+                                
+                             
                         </div>
                     </div>
                     <div class="col-sm-6 col-lg-2 my-3">
                         <h6 class="text-white text-uppercase mb-5">Support</h6>
                         <ul class="list-unstyled white-link footer-link-1 m-0">
                             <li class="pb-2"><a href="{{route('about.help')}}">Help</a></li>
-                            <li class="pb-2"><a href="{{route('about.contact')}}">Contact Us</a></li>
-                            
-                      
+                           
                             </ul></div><div class="col-sm-6 col-lg-2 my-3">
                             <h6 class="text-white text-uppercase mb-5">Policies</h6>
                             <ul class="list-unstyled white-link footer-link-1 m-0">
                                 <li class="pb-2"><a href="{{route('about.policy')}}">Privacy Policy</a></li>
                                 <li class="pb-2"><a href="{{route('about.terms')}}">Terms of use</a></li>
-                                <li class="pb-2"><a href="#">Gift card conditions</a>
-                            </li><li class="pb-2"><a href="{{route('about.faq')}}">FAQs</a></li>
-                           
+                                <li class="pb-2"><a href="#">Gift card conditions</a></li><li class="pb-2"><a href="{{route('about.faq')}}">FAQs</a></li>
+                            </ul>
                         </div>
-                        <div class="col-sm-6 col-lg-4 my-3">
+
+                <div class="col-sm-6 col-lg-4 my-3">
+                <h6 class="text-white text-uppercase mb-5">About Us</h6>
+                <ul class="list-unstyled white-link footer-link-1 m-0">
+                                <li class="pb-2"><a href="{{route('about.index')}}">Information</a></li>
+                                <!--<li class="pb-2"><a href="{{route('about.contact')}}">Contact us</a></li>-->
+                                <div class="ratio ratio-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1012667.5916891277!2d80.13091926720618!3d7.494727259706622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1snadiyas!5e0!3m2!1sen!2slk!4v1677149842200!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </ul>
+                    </div>
+           <!-- <div class="col-sm-6 col-lg-4 my-3">
                             <h6 class="text-white text-uppercase mb-5">Stay up to date</h6>
                
                             <form>
@@ -96,7 +107,7 @@
                                 </div>
                                 <p class="text-white text-opacity-85 m-0">New style and big discounts. Never spam.</p>
                             </form>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -104,7 +115,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start py-1">
-                            <p class="m-0 text-white text-opacity-85">© 2022 copyright by Nadiyas <a href="" target="_blank" class="text-reset">Nadiyas</a>
+                            <p class="m-0 text-white text-opacity-85">© 2022 copyright by<a href="" target="_blank" class="text-reset">Nadiyas</a>
                         </p>
                     </div>
                     <div class="col-md-6 text-center text-md-end py-1">

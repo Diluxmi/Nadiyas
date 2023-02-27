@@ -17,6 +17,9 @@ use App\Http\Controllers\Admin\ProductdetailController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CategorytypeController;
 use App\Http\Controllers\Admin\PhotoController;
+use App\Http\Controllers\Admin\StockController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\SizeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +33,8 @@ use App\Http\Controllers\Admin\PhotoController;
 
     Route::group(['prefix'=>''],function(){
         Route::get('/',[WelcomeController::class,'index'])->name('welcome');
-        Route::get('/autocomplete-search', [WelcomeController::class, 'autocompleteSearch'])->name('autocomplete.search');
+        Route::get('/autocomplete-search', [WelcomeController::class, 'autocompleteSearch'])->name('autocomplete-search');
+        Route::get('/search', [WelcomeController::class, 'search'])->name('search');
     });
 
 Auth::routes();
@@ -45,7 +49,7 @@ Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 
@@ -80,7 +84,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
     });;
    
     Route::group(['prefix'=>'product'],function(){
-        Route::get('/',[ProductController::class,'sindex'])->name('product.sindex');;
         Route::get('/index',[ProductController::class,'index'])->name('product.index');
         Route::get('/create',[ProductController::class,'create'])->name('product.create');
         Route::post('/store',[ProductController::class,'store'])->name('product.store');
@@ -101,9 +104,11 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
     
 
     Route::group(['prefix'=>'productview'],function(){
-        Route::get('ajaxRequest3',[ProductviewController::class,'index'])->name('productview.index');
-    
-    Route::group(['prefix'=>'{product}'],function(){
+        Route::get('index',[ProductviewController::class,'index'])->name('productview.index');
+        Route::get('/search',[ProductviewController::class,'search'])->name('productview.search');
+        Route::post('/filter',[ProductviewController::class,'filter'])->name('productview.filter');
+
+        Route::group(['prefix'=>'{product}'],function(){
         Route::get('/show',[ProductviewController::class,'show'])->name('productview.show');
     
     });
@@ -121,16 +126,27 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
     Route::group(['prefix'=>'order'],function(){
         Route::get('/',[OrderController::class,'index'])->name('order.index');
+        Route::get('/cindex',[OrderController::class,'cindex'])->name('order.cindex');
         Route::get('/create',[OrderController::class,'create'])->name('order.create');
     });
 
     Route::group(['prefix'=>'about'],function(){
         Route::get('/',[AboutController::class,'index'])->name('about.index');
+        Route::get('/index1',[AboutController::class,'index1'])->name('about.index1');
+        Route::get('/create',[AboutController::class,'create'])->name('about.create');
+        Route::post('/store',[AboutController::class,'store'])->name('about.store');
         Route::get('/contact',[AboutController::class,'contact'])->name('about.contact');
         Route::get('/help',[AboutController::class,'help'])->name('about.help');
         Route::get('/policy',[AboutController::class,'policy'])->name('about.policy');
         Route::get('/faq',[AboutController::class,'faq'])->name('about.faq');
         Route::get('/terms',[AboutController::class,'terms'])->name('about.terms');
+        Route::get('/event',[AboutController::class,'event'])->name('about.event');
+
+    Route::group(['prefix'=>'{about}'],function(){
+        Route::get('/show',[AboutController::class,'show'])->name('about.show');
+        Route::get('/delete',[AboutController::class,'delete'])->name('about.delete');
+        Route::delete('/destroy',[AboutController::class,'destroy'])->name('about.destroy');
+    });
     });
 
    
@@ -145,8 +161,11 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
 
 Route::group(['prefix'=>'user'],function(){
     Route::get('/',[UserController::class,'index'])->name('user.index');
+    Route::get('/cindex/{customer}',[UserController::class,'cindex'])->name('user.cindex');
 
 Route::group(['prefix'=>'{customer}'],function(){
+    Route::get('/',[UserController::class,'edit'])->name('user.edit');
+    Route::get('/update',[UserController::class,'update'])->name('user.update'); 
     Route::get('/show',[UserController::class,'show'])->name('user.show');
     Route::get('/delete',[UserController::class,'delete'])->name('user.delete');
     Route::delete('/destroy',[UserController::class,'destroy'])->name('user.destroy');
@@ -174,10 +193,44 @@ Route::group(['prefix'=>'photo'],function(){
     Route::get('/',[PhotoController::class,'index'])->name('photo.index');
     Route::get('/create',[PhotoController::class,'create'])->name('photo.create');
     Route::post('/store',[PhotoController::class,'store'])->name('photo.store');
+
+Route::group(['prefix'=>'{photo}'],function(){
+    Route::get('/edit',[PhotoController::class,'edit'])->name('photo.edit');
+    Route::patch('/update',[PhotoController::class,'update'])->name('photo.update');
+    Route::get('/delete',[PhotoController::class,'delete'])->name('photo.delete');
+    Route::delete('/destroy',[PhotoController::class,'destroy'])->name('photo.destroy');
+
+});
 });
 
-Route::group(['prefix'=>'customer'],function(){
-    Route::get('/',[CustomerController::class,'index'])->name('customer.index');
+
+Route::group(['prefix'=>'size'],function(){
+    Route::get('/',[SizeController::class,'index'])->name('size.index');
+    Route::get('/create',[SizeController::class,'create'])->name('size.create');
+    Route::post('/store',[SizeController::class,'store'])->name('size.store');
+
+    Route::group(['prefix'=>'{size}'],function(){
+    Route::get('/delete',[SizeController::class,'delete'])->name('size.delete');
+    Route::delete('/destroy',[SizeController::class,'destroy'])->name('size.destroy');
+    });
+
+});
+
+Route::group(['prefix'=>'stock'],function(){
+    Route::get('/',[StockController::class,'index'])->name('stock.index');
+    Route::get('/create',[StockController::class,'create'])->name('stock.create');
+    Route::post('/store',[StockController::class,'store'])->name('stock.store');
+
+Route::group(['prefix'=>'{stock}'],function(){
+    Route::get('/edit',[StockController::class,'edit'])->name('stock.edit');
+    Route::patch('/update',[StockController::class,'update'])->name('stock.update');
+    Route::get('/delete',[StockController::class,'delete'])->name('stock.delete');
+    Route::delete('/destroy',[StockController::class,'destroy'])->name('stock.destroy');
+});
+});
+
+Route::group(['prefix'=>'payment'],function(){
+    Route::get('/',[PaymentController::class,'index'])->name('payment.index');
 });
 
 

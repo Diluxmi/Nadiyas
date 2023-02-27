@@ -46,11 +46,16 @@ class Product extends Model
     public function photo(){
         return $this->hasMany(Photo::class,'product_id');
     }
+    public function size(){
+        return $this->hasMany(Size::class,'product_id');
+    }
    
 
     public function orderitem(){
         return $this->hasMany(Orderitem::class,'order_id');
     }
 
-    
+    public function stock(){
+        return $this->hasMany(Stock::class,'product_id');
+    }
 }

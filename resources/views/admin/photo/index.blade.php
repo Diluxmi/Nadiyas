@@ -38,9 +38,9 @@
                       
                       
                       <td>
-                          <a href="" class="btn btn-primary"><span class="text">Show</span></a>
-                          <a href="" class="btn btn-dark"><span class="text"><i class="mdi mdi-file-check btn-icon-append"></i>Edit</span></a>
-                          <a href="" class="btn btn-danger"><span class="text"><i class="mdi mdi-delete"></i>Delete</span></a>
+                         
+                          <a href="{{route('photo.edit',$photo->id)}}" class="btn btn-dark"><span class="text"><i class="mdi mdi-file-check btn-icon-append"></i>Edit</span></a>
+                          <a href="{{route('photo.delete',$photo->id)}}" class="btn btn-danger"><span class="text"><i class="mdi mdi-delete"></i>Delete</span></a>
                         </td>
                     </tr>
             @endforeach

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\controller;
 
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -17,6 +20,13 @@ class OrderController extends Controller
     public function index()
     {
         return view('admin.order.index');
+    }
+
+
+    public function cindex(){
+
+        $departments=Department::all();
+        return view('admin.order.cindex',compact('departments'));
     }
 
     /**

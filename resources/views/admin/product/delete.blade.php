@@ -9,12 +9,14 @@
                     <h4>Are sure you want to delete this Product!</h4>
                 </div>
             </div>
+
         <div class="card-body">
             @if (session('success'))
             <div class="alert alert-success">
                 {{session('success')}}
         </div>
         @endif
+        
     {!!Form::open()->route('product.destroy',[$product->id])->method('delete')!!}
         <div class="float-start">
             <button class="btn btn-danger btn-md float-right"><i class="mdi mdi-delete"></i>Delete</button>

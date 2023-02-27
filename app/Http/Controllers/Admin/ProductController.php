@@ -18,43 +18,26 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    public function sindex(){
-        $categories =Category::all();
-        $departments =Department::all();
-        return view('admin.product.sindex',compact('categories','departments'));
-
-    }
-
+   
     public function index(Product $product)
     {
-        $products=Product::orderBy('id','desc')->paginate('12');
+        $q = request()->input('q');
+        if($q){
+            $products =Product::where('name','like',"%{$q}%")->orderBy('id', 'desc')->paginate(200);
+        }else{
+              $products=Product::orderBy('id', 'desc')->paginate(200);   
+        }
         return view('admin.product.index',compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        
-        $categories =Category::all();
-        $departments =Department::all();
-        $categorytypes=Categorytype::all();
-
-        return view('admin.product.create',compact('categories','departments','categorytypes'));
+         $categories =Category::all();
+         $departments =Department::all();
+         $categorytypes=Categorytype::all();
+         return view('admin.product.create',compact('categories','departments','categorytypes'));
     }
-
-    
-
-    public function dropdown(Request $request){
+     public function dropdown(Request $request){
         $categorytypes =Categorytype::where('department_id',$request->department)->get();
         $categories = Category::all();
         return response()->json(['categorytypes'=>$categorytypes,'categories'=>$categories]);
@@ -69,12 +52,10 @@ class ProductController extends Controller
         $category=Category::where('id',$request->category)->get();
         return response()->json($category);
     }
-
-
+    
     public function store(ProductStoreRequest $request)
     {
-
-      $data = $request->validated();
+         $data = $request->validated();
      if ($request->has('image')){
         $file=$request->file('image');
         $name = $file->getClientOriginalName();
@@ -102,29 +83,15 @@ class ProductController extends Controller
         'actual_filename'=>$name,
         'extension'=>$extension,
       ]);
-
-
-      return redirect()->route('product.index')->with('success','Product has been created successful!');
+    return redirect()->route('product.index')->with('success','Product has been created successful!');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function show(Product $product)
     {
         return view('admin.product.show',compact('product'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
 
     {
@@ -133,19 +100,11 @@ class ProductController extends Controller
         return view('admin.product.edit',compact('product','departments','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(ProductUpdateRequest $request, Product $product)
     {
         $data = $request->validated();
-        
         $product->updated($data);
-       
+        //dd($data);
         return redirect()->route('product.index',compact('product'))->with('success','Product has been update successful!');
     }
 

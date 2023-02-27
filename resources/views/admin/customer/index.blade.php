@@ -24,16 +24,16 @@
             <div class="py-6">
                 <div class="container">
                     <div class="row">
-                        <!-- Profile Menu -->
+                        <!-- Profile Menu --> 
                         <div class="col-lg-4 pb-4 pb-lg-0 col-xxl-3  pe-xxl-5">
                             <div class="bg-white border border-bottom-0 shadow-lg">
                                 <div class="d-flex p-3 align-items-center">
                                     <div class="avatar avatar-lg rounded-circle">
-                                        <img src="../../assets/img/avatar/1000x1000.jpg" title="" alt="">
+                                    <image src="{{asset($customer->image)}}"  style="height:50px; width:50px;"}}>
                                     </div>
                                     <div class="col ps-3">
-                                        <h6 class="m-0">Jennifer Winget</h6>
-                                        <small><a href="#">your@email.com</a></small>
+                                        <h6 class="m-0">{{$customer->name}}</h6>
+                                        <small><a href="#">{{$customer->user->email}}</a></small>
                                     </div>
                                 </div>
                                 <div class="bg-gray-200 p-3 border-bottom border-top">
@@ -45,16 +45,7 @@
                                             <i class="bi bi-bag me-2"></i> Order <div class="ms-auto badge-pill badge bg-secondary">5</div>
                                         </a>
                                     </li>
-                                    <li class="border-bottom mb-0">
-                                        <a class="nav-link-style d-flex align-items-center p-3" href="account-wishlist.html">
-                                            <i class="fi-heart me-2"></i>Wishlist <div class="ms-auto badge-pill badge bg-secondary">5</div>
-                                        </a>
-                                    </li>
-                                    <li class="border-bottom mb-0">
-                                        <a class="nav-link-style d-flex align-items-center p-3" href="account-tickets.html">
-                                            <i class="bi bi-bookmark me-2"></i>Support Tickets <div class="ms-auto badge-pill badge bg-secondary">0</div>
-                                        </a>
-                                    </li>
+                                   
                                 </ul>
                                 <div class="bg-gray-200 p-3 border-bottom">
                                     <h6 class="m-0">Account settings</h6>
@@ -76,65 +67,51 @@
                                         </a>
                                     </li>
                                     <li class="border-bottom mb-0">
-                                        <a class="nav-link-style d-flex align-items-center p-3" href="#">
-                                            <i class="bi bi-box-arrow-left me-2"></i>Logout
-                                        </a>
+                                        <a class="nav-link-style d-flex align-items-center p-3"href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf    
+                                                </form> Logout</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <!-- End Profile Menu -->
-                        <!-- Content -->
+                        <!-- Content -->     
+                    
+                    
                         <div class="col-lg-8 col-xxl-9">
                             <div class="card mb-5">
+                            <form class="position-relative w-100" method="get" action="{{route('user.update',$customer->id)}}" >
                                 <div class="card-header py-3">
-                                    <h5 class="m-0">Profile Update</h5>
+                                    <h5 class="m-0">Update {{$customer->name}}</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
+                                   
+                                        <div class="col-sm-6 mb-3">
+                                            <label class="form-label">Customer Name<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="{{$customer->name}}">
+                                        </div>
+                                        
+                                        <div class="col-sm-6 mb-3">
+                                            <label class="form-label">Address<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="exampleInputEmail3" placeholder="{{$customer->address}}">
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <label class="form-label">Email address<span class="text-danger">*</span></label>
+                                            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="{{ $customer->user->email}}">
+                                        </div>
+                                        <div class="col-sm-6 mb-3">
+                                            <label class="form-label">Mobile Number<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" placeholder="{{$customer->phonenumber}}">
+                                        </div>
+                                        
+                                        
                                         <div class="col-sm-6 mb-3">
                                             <label for="formFile" class="form-label">Change Profile Photo</label>
                                             <input class="form-control" type="file" id="formFile">
                                         </div>
                                         <div class="col-sm-6 mb-3">
-                                            <label class="form-label">First Name<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="First name">
-                                        </div>
-                                        <div class="col-sm-6 mb-3">
-                                            <label class="form-label">Last Name<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Last name">
-                                        </div>
-                                        <div class="col-sm-6 mb-3">
-                                            <label class="form-label">Email address<span class="text-danger">*</span></label>
-                                            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="E-mail">
-                                        </div>
-                                        <div class="col-sm-6 mb-3">
-                                            <label class="form-label">Mobile Number<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Mobile">
-                                        </div>
-                                        <div class="col-sm-6 mb-3">
-                                            <label class="form-label">Landline Number</label>
-                                            <input type="text" class="form-control" placeholder="Landline">
-                                        </div>
-                                        <div class="col-12 pt-2">
-                                            <button class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header py-3">
-                                    <h5 class="m-0">Change your password</h5>
-                                </div>
-                                <div class="card-body p-4">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-sm-12 mb-3">
-                                                <div class="form-group">
-                                                    <label for="password_old" class="form-label">Old password</label>
-                                                    <input type="password" id="password_old" class="form-control"></div>
-                                            </div>
-                                            <div class="col-sm-6 mb-3">
                                                 <div class="form-group">
                                                     <label for="password_1" class="form-label">New password</label>
                                                     <input type="password" id="password_1" class="form-control">
@@ -143,14 +120,17 @@
                                             <div class="col-sm-6 mb-3">
                                                 <div class="form-group"><label for="password_2" class="form-label">Retype new password</label><input type="password" id="password_2" class="form-control"></div>
                                             </div>
-                                            <div class="col-12 pt-2">
-                                                <button class="btn btn-primary">Change password</button>
-                                            </div>
                                         </div>
-                                    </form>
+                                        <div class="col-12 pt-2">
+                                            <button class="btn btn-primary">Save changes</button>
+                                        </div>
+                                        
+                                    </div>
                                 </div>
-                            </div>
+                                </form>
+                            </div> 
                         </div>
+                        
                         <!-- End Content -->
                     </div>
                 </div>

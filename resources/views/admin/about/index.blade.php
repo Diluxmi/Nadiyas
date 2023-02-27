@@ -2,37 +2,33 @@
 @section('title', 'dashboard')
 @section('content')
 
-<!doctype html>
-<html lang="zxx">
 
-<head>
-    <!-- metas -->
-<meta charset="utf-8">
-<meta name="author" content="pxdraft" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="keywords" content="ShopApp - eCommerce Bootstrap 5 Template" />
-<meta name="description" content="ShopApp - eCommerce Bootstrap 5 Template" />
-<!-- title -->
-<title>Nadiyas</title>
-<!-- Favicon -->
-<link rel="shortcut icon" href="../../assets/img/favicon.ico">
-<!-- CSS Template -->
-<link href="../../assets/css/theme.css" rel="stylesheet">
-</head>
-
-<body>
-
-   
+    <!-- Breadcrumb -->
+    <div class="py-3 bg-gray-100">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 my-2">
+                            <h1 class="m-0 h4 text-center text-lg-start">About</h1>
+                        </div>
+                        <div class="col-lg-6 my-2">
+                            <ol class="breadcrumb dark-link m-0 small justify-content-center justify-content-lg-end">
+                                <li class="breadcrumb-item"><a class="text-nowrap" href="#"><i class="bi bi-home"></i>Home</a></li>
+                                <li class="breadcrumb-item text-nowrap active" aria-current="page">About</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Breadcrumb -->
         <!-- End Header -->
         <!-- Main -->
         <main>
-           
-            <section class="section">
+        <div class="py-3 bg-white-100">
+            <section class="section background-color:red;">
                 <div class="container">
-                    <div class="row align-items-center">
+                    <div class="row align-items-top">
                         <div class="col-lg-6 my-3">
-                            <img src="{{asset('customer/img/nadiyasj.jpg')}}" style="width:500px;" alt="" title="" class="img-fluid">
+                        <img src="{{asset('customer/img/tree.png')}}" style="width:550px;"title="" alt=""> 
                         </div>
                         <div class="col-lg-6 ps-lg-8 my-3">
                             <h6 class="mb-3 text-gray-400">
@@ -47,6 +43,7 @@
                     </div>
                 </div>
             </section>
+        </div>
             <!-- End Section -->
             <!-- Section -->
             <section class="section bg-gray-100">
@@ -79,64 +76,36 @@
                 <div class="container">
                     <div class="row justify-content-center section-heading">
                         <div class="col-lg-6 text-center">
-                            <h3 class="h1">Team Members</h3>
-                            <p class="m-0 fw-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt labor et dolore magna aliqua.</p>
+                            <h3 class="h1">Nadiya's Highlights</h3>
                         </div>
                     </div>
                     <div class="row g-3">
-                       
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card" >
-                                <img class="img-fluid card-img-top" src="../../assets/img/pages/1000x1000.jpg" alt="">
-                                <div class="card-body">
-                                    <h4 class="h6 mb-1">Thanuskodi Sanmugasundharam</h4>
-                                    <p class="mb-2">CEO &amp; Founder </p>
-                                    <div class="nav dark-link">
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-facebook"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-twitter"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-instagram"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-linkedin"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                       <div class="col-12">
+        
+                            <table class="table table-bordered center" style="table-align:center;">
+                            <tbody>
+                            @foreach($abouts as $about) 
+                                <tr class="text-dark" >
+                                    <div class="col-4">
+                                <td ><h4>{{$about->title}}</h4></td>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <div class="card" align="center">
-                                <img class="img-fluid card-img-top" src="../../assets/img/pages/1000x1000.jpg" alt="">
-                                <div class="card-body">
-                                    <h4 class="h6 mb-1">Julianne Moore</h4>
-                                    <p class="mb-2">CEO &amp; Founder </p>
-                                    <div class="nav dark-link">
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-facebook"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-twitter"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-instagram"></i>
-                                        </a>
-                                        <a class="icon icon-sm bg-primary text-white rounded-circle me-2" href="#">
-                                            <i class="bi bi-linkedin"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                            <div class="col-3">
+                                <td>
+                                    <a href="{{route('about.show',$about->id)}}" class="btn btn-info"><span class="text">View Information</span></a>
+                                </td>
                             </div>
-                        </div>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                            </table>
+
+                        </div>      
                     </div>
                 </div>
             </section>
             <!-- End Section -->
             <!-- Section -->
-            <section class="section bg-gray-100">
+         <!--   <section class="section bg-gray-100">
                 <div class="container">
                     <div class="row g-4">
                         <div class="col-lg-3 col-6">
@@ -144,8 +113,7 @@
                                 <div class="display-5 mb-3 text-primary">
                                     <i class="bi bi-briefcase"></i>
                                 </div>
-                                <h2 class="count">86</h2>
-                                <span>project done</span>
+                               <a href="{{route('about.event')}}"> <span>Event</span></a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
@@ -162,7 +130,7 @@
                                 <div class="display-5 mb-3 text-primary">
                                     <i class="bi bi-intersect"></i>
                                 </div>
-                                <h2 class="count">101</h2>
+                                <h2 class="count">2</h2>
                                 <span>branding</span>
                             </div>
                         </div>
@@ -171,16 +139,16 @@
                                 <div class="display-5 mb-3 text-primary">
                                     <i class="bi bi-emoji-smile"></i>
                                 </div>
-                                <h2 class="count">24</h2>
+                                <h2 class="count">60000</h2>
                                 <span>happy clients</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>-->
             <!-- End Section -->
             <!-- About us Start -->
-            <div class="section">
+        <!--    <div class="section">
                 <div class="container">
                     <div class="row justify-content-center section-heading">
                         <div class="col-lg-6 text-center">
@@ -212,54 +180,31 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="lead text-center border p-4 mb-4">
-                                        <div class="d-inline-block mb-4">
-                                            <img class="rounded-circle" src="../../assets/img/pages/1000x1000.jpg" title="" alt="" width="100">
-                                        </div>
                                         <p>Hi my name is Vihansa Jayathilaka and I was went your shop one day and I bought some dresses. Really I exited.because I was found fantastic collection on your shop. I just wanted to say that There was great customer service on Nadiya's textile and everyone else there was so friendly and helpful. </p>
                                         <h5 class="m-0 pt-2">Vihansa Jayathilaka</h5>
                                         
                                     </div>
                                 </div>
+                                
                                 <div class="swiper-slide">
                                     <div class="lead text-center border p-4 mb-4">
-                                        <div class="d-inline-block mb-4">
-                                            <img class="rounded-circle" src="../../assets/img/pages/1000x1000.jpg" title="" alt="" width="100">
-                                        </div>
-                                        <p>Smaze is a professionally built HTML template. It offers creative design and can be adapted to suit your design or theme in seconds.. I have personally chatted to the author, who is very professional and extremely helpful. If you're looking for a clean html template that works for many projects, then please choose Smaze.. A firm full rating! We need more committed authors like pxdraft! Thank you very much..</p>
-                                        <h5 class="m-0 pt-2">Nancy Drew</h5>
-                                        <span class="small">Director at XDesign</span>
+                                        <p>You’re really good at obtaining first-hand customer information and using this information to improve our products and services. You should show the rest of us how you go about obtaining this information.</p>
+                                        <h5 class="m-0 pt-2">Mohamad Azan</h5>  
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="lead text-center border p-4 mb-4">
-                                        <div class="d-inline-block mb-4">
-                                            <img class="rounded-circle" src="../../assets/img/pages/1000x1000.jpg" title="" alt="" width="100">
-                                        </div>
-                                        <p>Smaze is a professionally built HTML template. It offers creative design and can be adapted to suit your design or theme in seconds.. I have personally chatted to the author, who is very professional and extremely helpful. If you're looking for a clean html template that works for many projects, then please choose Smaze.. A firm full rating! We need more committed authors like pxdraft! Thank you very much..</p>
-                                        <h5 class="m-0 pt-2">Nancy Drew</h5>
-                                        <span class="small">Director at XDesign</span>
+                                        <p>Your loyal customer base is outstanding. Customers often ask for you by name and you have a lot of repeat customers as a result. Great job!</p>
+                                        <h5 class="m-0 pt-2">Kavin </h5>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="lead text-center border p-4 mb-4">
-                                        <div class="d-inline-block mb-4">
-                                            <img class="rounded-circle" src="../../assets/img/pages/1000x1000.jpg" title="" alt="" width="100">
-                                        </div>
-                                        <p>Smaze is a professionally built HTML template. It offers creative design and can be adapted to suit your design or theme in seconds.. I have personally chatted to the author, who is very professional and extremely helpful. If you're looking for a clean html template that works for many projects, then please choose Smaze.. A firm full rating! We need more committed authors like pxdraft! Thank you very much..</p>
-                                        <h5 class="m-0 pt-2">Nancy Drew</h5>
-                                        <span class="small">Director at XDesign</span>
+                                        <p>You're really good at focusing on what customers need and require. You have a real instinct to understand our customers. Good work!</p>
+                                        <h5 class="m-0 pt-2">Nancy Drew</h5> 
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="lead text-center border p-4 mb-4">
-                                        <div class="d-inline-block mb-4">
-                                            <img class="rounded-circle" src="../../assets/img/pages/1000x1000.jpg" title="" alt="" width="100">
-                                        </div>
-                                        <p>Smaze is a professionally built HTML template. It offers creative design and can be adapted to suit your design or theme in seconds.. I have personally chatted to the author, who is very professional and extremely helpful. If you're looking for a clean html template that works for many projects, then please choose Smaze.. A firm full rating! We need more committed authors like pxdraft! Thank you very much..</p>
-                                        <h5 class="m-0 pt-2">Nancy Drew</h5>
-                                        <span class="small">Director at XDesign</span>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="swiper-pagination mt-4 d-lg-none position-relative"></div>
                         </div>
@@ -267,7 +212,7 @@
                         <div class="swiper-arrow-style-02 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!-- About us End -->
         </main>
      

@@ -64,48 +64,29 @@ class PhotoController extends Controller
          return redirect()->route('photo.index')->with('success','photo created successful!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Photo  $photo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Photo $photo)
-    {
-        //
+    
+    public function edit(Photo $photo){
+        $products=Product::all();
+        return view('admin.photo.edit',compact('photo','products'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Photo  $photo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Photo $photo)
+
+    public function update(PhotoUpdateRequest $request, Photo $photo)
     {
-        //
+        $data = $request->validated();
+        
+        $photo->updated($data);
+       //dd($data);
+        return redirect()->route('photo.index')->with('success','Photo has been update successful!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Photo  $photo
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Photo $photo)
-    {
-        //
+    public function delete(Photo $photo){
+        return view('admin.photo.delete',compact('photo'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Photo  $photo
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Photo $photo)
     {
-        //
+        $photo->delete();
+        return redirect()->route('photo.index')->with('success','Photo has been deleted succesfu!');
     }
 }

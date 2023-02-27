@@ -6,6 +6,9 @@
 <script src="{{asset('customer/vendor/count-down/jquery.countdown.min.js')}}"></script>
 <script src="{{asset('customer/vendor/jarallax/jarallax-all.js')}}"></script>
 <script src="{{asset('customer/js/custom.js')}}"></script>
+<script src="{{asset('customer/js/theme.js')}}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 
 <script>
   function listcategories(department,category){
@@ -19,7 +22,7 @@
             if(res){
               $('#categorytype_id').empty(); 
                 $.each(res['categorytypes'],function(key,value){
-                var templist=' <div id="'+value.id+'" class="col-6"><h6 class="sm-title-04"> <a class="text-reset" href="#">'+ value.name+'</a></h6><ul class="list-unstyled link-list-style-03"></ul></div>';
+                var templist=' <div id="'+value.id+'" class="col-3"><h6 class="sm-title-04"> <a class="text-reset" href="#">'+ value.name+'</a></h6><ul class="list-unstyled link-list-style-02 m-0"></ul></div>';
                 var templist1= $('#'+department).append(templist);   
         
                 $.each(res['categories'],function(key1,value1){
@@ -37,14 +40,10 @@
           } 
 </script>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js">
-  </script>
-  <script type="text/javascript">
-    var route = "{{url('autocomplete.search')}}";
-        $('#search').typeahead({ 
+<script type="text/javascript">
+        var route = "{{ url('autocomplete-search') }}";
+        $('#search').typeahead({
             source: function (query, process) {
-              console.log(1);
                 return $.get(route, {
                     query: query
                 }, function (data) {
@@ -53,4 +52,12 @@
             }
         });
     </script>
-  
+
+
+
+
+
+
+
+    
+

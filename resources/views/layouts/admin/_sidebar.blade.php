@@ -38,7 +38,12 @@
             </div>
           </li>
          
-
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('about.index1')}}">
+              <i class="mdi mdi-bank"></i>
+              <span class="menu-title">About</span>
+            </a>
+          </li>
          
          
           <li class="nav-item">
@@ -75,6 +80,19 @@
             <a class="nav-link" href="{{route('photo.index')}}">
               <i class="mdi mdi-pencil"></i>
               <span class="menu-title">Product Photos</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('size.index')}}">
+              <i class="mdi mdi-pencil"></i>
+              <span class="menu-title">Size</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('stock.index')}}">
+              <i class="mdi mdi-pencil"></i>
+              <span class="menu-title">Stock</span>
             </a>
           </li>
 

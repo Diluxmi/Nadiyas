@@ -2,28 +2,88 @@
 @section('title', 'dashboard')
 @section('content')
 <main>
-
+@if(session('error'))
+                <div class="alert alert-warning">
+                    {{session('error')}}
+                </div>
+                @endif
 <div class="parallax section bg-dark"  data-jarallax-video="mp4:{{asset('customer/web.mp4')}}">
                 <div class="container">
                     <div class="row justify-content-center py-10">
                         <div class="col-lg-6 text-center">
                             <h6 class="text-uppercase text-white letter-spacing-3">Exclusive</h6>
                             <h3 class="display-2 text-white font-alt mb-3">Best Collection</h3>
-                            <p class="lead text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="pt-2">
+                            <p class="lead text-white">Fashion is only the attempt to realize art in living forms and social intercourse.</p>
+                           <!-- <div class="pt-2">
                                 <a class="btn btn-outline-white" href="#">Let's Shop Now</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
+            </div>     
+<br>
+
+<div class="swiper swiper-container" data-swiper-options='{
+                  "slidesPerView": 1,
+                  "spaceBetween": 0,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-next-01",
+                    "prevEl": ".swiper-prev-01"
+                  },
+                  "autoplay": {
+                    "delay": 5000,
+                    "disableOnInteraction": false
+                  }
+                }'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('customer/img/front/1.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('customer/img/offer.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                    
+                                </div>
+                            </div>
+                        </div>
             </div>
-           
-          
 
+                        <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('customer/img/front/1.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                    
+                                </div>
+                            </div>
+                        </div>
 
-</br>
+                    </div>
+                </div>
+                <div class="swiper-arrow-style-01 swiper-next swiper-next-01"><i class="bi-chevron-right"></i> </div>
+                <div class="swiper-arrow-style-01 swiper-prev swiper-prev-01"><i class="bi-chevron-left"></i></div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+
+              </br>
 
  <!-- Home Slider -->
+ 
+                    <div class="row justify-content-center section-heading">
+                        <div class="col-lg-6 text-center">
+                            <h3 class="fw-500 h2 m-0">Women's Wear</h3>
+                        </div>
+                    </div>
  <div class="swiper swiper-container" data-swiper-options='{
                   "slidesPerView": 1,
                   "spaceBetween": 15,
@@ -55,32 +115,28 @@
                 }'>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/kids.jpg')}});">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/women/fml.jpg')}});">
                             <div class="container">
-                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-10">
                                     <div class="col-lg-8 text-center">
-                                        
-                                            <h4 class="fw-500 text-uppercase mb-3">Kids</h4>
-                                            <h5 class="">New LookBook</h5>
-                                            <div class="pt-2">
-                                                <a class="btn btn-outline-dark" href="#">Shop Now</a>
-                                            </div>
-                                       
+                                        <h3 class="text-uppercase text-white ">Formal Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/women/fw1.jpg')}});">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/women/casual.jpg')}});">
                             <div class="container">
                                 <div class="row min-vh-75 align-items-center justify-content-center py-12">
                                     <div class="col-lg-8 text-center">
                                         <div class="bg- px-4 py-4 hc-slider-box">
-                                            <h6 class="fw-500 text-uppercase mb-3">Women's</h6>
-                                            <h5 class=" fw-600 text-uppercase">New LookBook</h5>
+                                            <h3 class="fw-500 text-white text-uppercase mb-3">Casual Wear</h3>
                                             <div class="pt-2">
-                                                <a class="btn btn-outline-dark" href="#">Shop</a>
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -89,15 +145,31 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/fm1.jpg')}});">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/women/saree.jpg')}});">
                             <div class="container">
                                 <div class="row min-vh-75 align-items-center justify-content-center py-12">
                                     <div class="col-lg-8 text-center">
                                         <div class=" px-4 py-4 hc-slider-box">
-                                            <h6 class="fw-500 text-uppercase mb-3">Men's</h6>
-                                            <h5 class=" fw-600 text-uppercase">New LookBook</h5>
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Ethnic Wear</h3>
                                             <div class="pt-2">
-                                                <a class="btn btn-outline-dark" href="#">Shop</a>
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/women/cosmetic.png')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Cosmetic</h3>
+                                            <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
                                             </div>
                                         </div>
                                     </div>
@@ -106,17 +178,32 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/fa1.jpg')}});">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/footwear.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Foot Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/women/accs.jpg')}});">
                             <div class="container">
                                 <div class="row min-vh-75 align-items-center justify-content-center py-12">
                                     <div class="col-lg-8 text-center">
                                         <div class="px-4 py-4 hc-slider-box">
-                                            <h5 class="fw-500 text-uppercase mb-3">Accessories</h5>
-                                            <h5 class="fw-600 text-uppercase">New LookBook</h5>
-                                            <div class="pt-2">
-                                                <a class="btn btn-outline-dark" href="#">Shop</a>
-                                            </div>
-                                        </div>
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Accessories</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
@@ -127,7 +214,7 @@
                 <div class="swiper-arrow-style-01 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
                 <div class="swiper-pagination swiper-pagination-white"></div>
             </div>
-
+       
 
 <section class="section">
                 <div class="container">
@@ -175,23 +262,13 @@
                                             <div class="badge-ribbon">
                                                 <span class="badge bg-primary">New</span>
                                             </div>
-                                            <div class="product-action">
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-heart"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-outline-primary">
-                                                    <i class="fi-repeat"></i>
-                                                </a>
-                                                <a data-bs-toggle="modal" data-bs-target="#px-quick-view" href="javascript:void(0)" class="btn btn-outline-primary">
-                                                    <i class="fi-eye"></i>
-                                                </a>
-                                            </div>
+                                           
                                             <div class="product-media">
                                                 <a href="{{route('productview.show',$product->id)}}">
                                                     <img class="img-fluid" src="{{url('storage/'.$product->image)}}" style="height:300px; width:300px;" title="" alt="">
                                                     
                                                 </a>
-                                <form method="Post" action="{{route('cart.store',$product->id)}}" enctype="multipart/form-data">            
+                               <!--- <form method="Post" action="{{route('cart.store',$product->id)}}" enctype="multipart/form-data">            
                                 
                                     <input type="hidden" value="{{$product->id}}" name="id">
                                     <input type="hidden" value="{{$product->name}}" name="name">
@@ -202,25 +279,24 @@
                                         <button class="btn btn-primary btn-sm w-100">
                                         <i class="fi-shopping-cart"></i>Add to cart</button>
                                     </div>
-                                </form>
+                                </form>-->
                                                 
                                             </div>
                                         </div>
                                         <div class="product-card-info">
-                                            <div class="product-meta small">
+                                        <div class="rating-star text">
+                                        <i class="bi-star-fill active"></i>
+                                        <i class="bi-star-fill active"></i>
+                                        <i class="bi-star-fill active"></i>
+                                        <i class="bi-star-fill active"></i>
+                                        <i class="bi-star"></i>
+                                    </div>
+                                    <h6 class="product-title">
                                                 <a href="#">{{$product->name}}</a>
-                                            </div>
-                                            <div class="rating-star text">
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star-fill active"></i>
-                                                <i class="bi-star"></i>
-                                            </div>
+                                    </h6>
                                            
                                             <div class="product-price">
                                                 <span class="text-primary">Rs.{{$product->price}}</span>
-                                                
                                             </div>
                                         </div>
                                     </div>
@@ -236,32 +312,49 @@
             </section>
 
             <!-- Home Section -->
-            <div class="swiper swiper-container" data-swiper-options='{
+            <div class="row justify-content-center section-heading">
+                        <div class="col-lg-6 text-center">
+                            <h3 class="fw-500 h2 m-0">Men's Wear</h3>
+                        </div>
+                    </div>
+ <div class="swiper swiper-container" data-swiper-options='{
                   "slidesPerView": 1,
-                  "spaceBetween": 0,
+                  "spaceBetween": 15,
+                  "loop": true,
+                  "centeredSlides": true,
                   "pagination": {
                     "el": ".swiper-pagination",
                     "clickable": true
-                  },
+                    },
                   "navigation": {
-                    "nextEl": ".swiper-next-01",
-                    "prevEl": ".swiper-prev-01"
+                    "nextEl": ".swiper-next-02",
+                    "prevEl": ".swiper-prev-02"
                   },
                   "autoplay": {
-                    "delay": 5000,
+                    "delay": 3500,
                     "disableOnInteraction": false
+                  },
+                  "breakpoints": {
+                    "600": {
+                      "slidesPerView": 2
+                    },
+                    "991": {
+                      "slidesPerView": 3
+                    },
+                    "1200": {
+                      "slidesPerView": 3
+                    }
                   }
                 }'>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('customer/img/frontimage/f2.jpg')}});">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/formal.jpg')}});">
                             <div class="container">
-                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-10">
                                     <div class="col-lg-8 text-center">
-                                        <h6 class="fw-300 text-uppercase text-white mb-3 letter-spacing-6">You're Looking Good</h6>
-                                        <h1 class="display-1 fw-300 text-white letter-spacing-6 text-uppercase">New LookBook</h1>
-                                        <div class="pt-3">
-                                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                                        <h3 class="text-uppercase text-white ">Formal Wear</h3>
+                                        <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
                                         </div>
                                     </div>
                                 </div>
@@ -269,46 +362,334 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('customer/img/frontimage/b3.jpg')}});">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/casual.jpg')}});">
                             <div class="container">
-                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
                                     <div class="col-lg-8 text-center">
-                                        <h6 class="fw-300 text-uppercase text-white mb-3 letter-spacing-6">You're Looking Good</h6>
-                                        <h1 class="display-1 fw-300 text-white letter-spacing-6 text-uppercase">New LookBook</h1>
-                                        <div class="pt-3">
-                                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                                        <div class="bg- px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-white text-uppercase mb-3">Casual Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>  
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-            </div>
-
-                        <div class="swiper-slide">
-                        <div class="bg-no-repeat bg-cover bg-center" style="background-image: url({{asset('customer/img/frontimage/b4.jpg')}});">
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/ethnic.jpg')}});">
                             <div class="container">
-                                <div class="row min-vh-85 align-items-center justify-content-center py-12">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
                                     <div class="col-lg-8 text-center">
-                                        <h6 class="fw-300 text-uppercase text-white mb-3 letter-spacing-6">You're Looking Good</h6>
-                                        <h1 class="display-1 fw-300 text-white letter-spacing-6 text-uppercase">New LookBook</h1>
-                                        <div class="pt-3">
-                                            <a class="btn btn-outline-white" href="#">Discover More</a>
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Ethnic Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/cosmetic.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Cosmetic</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/foot.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Foot Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/men/accs.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class="px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Accessories</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="swiper-arrow-style-01 swiper-next swiper-next-01"><i class="bi-chevron-right"></i> </div>
-                <div class="swiper-arrow-style-01 swiper-prev swiper-prev-01"><i class="bi-chevron-left"></i></div>
+                <div class="swiper-arrow-style-01 swiper-next swiper-next-02"><i class="bi bi-chevron-right"></i> </div>
+                <div class="swiper-arrow-style-01 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
                 <div class="swiper-pagination swiper-pagination-white"></div>
             </div>
-
               </br>
 
-                    <section class="section">
+            
+                    </br>
+         <section class="py-3">
+                <div class="container">
+                    <div class="row g-3">
+                    <div class="">
+                            <h3 class="fw-500 h2 m-0 text-center"> Voucher</h3>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative hover-scale">
+                                <div class="hover-scale-in">
+                                    <a href="#">
+                                        <img class="w-100" src="{{asset('customer/img/gift.jpg')}}" title="" alt="">
+                                    </a>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="position-relative hover-scale">
+                                <div class="hover-scale-in">
+                                    <a href="#">
+                                        <img class="w-100" src="{{asset('customer/img/gift.jpg')}}" title="" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+ </br>
+<div class="pt-3">
+                <div class="container-fluid px-0">
+                <div class="row justify-content-center section-heading">
+                        <div class="col-lg-6 text-center">
+                            <h3 class="fw-500 h2 m-0"> Brands</h3>
+                        </div>
+                    </div>
+                    <div class="swiper-hover-arrow position-relative">
+                        <div class="swiper swiper-container" data-swiper-options='{
+                            "slidesPerView": 2,
+                            "spaceBetween": 0,
+                            "loop": true,
+                            "pagination": {
+                                "el": ".swiper-pagination",
+                                "clickable": true
+                            },
+                            "navigation": {
+                                "nextEl": ".swiper-next-02",
+                                "prevEl": ".swiper-prev-02"
+                            },
+                            "autoplay": {
+                                "delay": 3500,
+                                "disableOnInteraction": false
+                            },
+                            "breakpoints": {
+                                "600": {
+                                    "slidesPerView": 4
+                                },
+                                "991": {
+                                    "slidesPerView": 4
+                                },
+                                "1200": {
+                                    "slidesPerView": 6
+                                },
+                                "1300": {
+                                    "slidesPerView": 7
+                                }
+                            }
+                        }'>
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/moose.png')}}" style="height:100px; width:300px;" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/vintage.png')}}" style="height:100px; width:300px;" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand3.jpeg')}}" style="height:100px; width:300px;" title="" alt="">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
+                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand4.jpeg')}}" style="height:100px; width:300px;" title="" alt="">
+                                    </a>
+                                </div>
+                                
+                            </div>
+                            <div class="swiper-pagination mt-4 d-lg-none position-relative"></div>
+                        </div>
+                        <div class="swiper-arrow-style-02 swiper-next swiper-next-02"><i class="bi bi-chevron-right"></i> </div>
+                        <div class="swiper-arrow-style-02 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
+                    </div>
+                </div>
+            </div>
+                    </br>
+               <!-- End Product section -->
+            <!-- call to action -->
+            <div class="row justify-content-center section-heading">
+                        <div class="col-lg-6 text-center">
+                            <h3 class="fw-500 h2 m-0">Kids </h3>
+                        </div>
+                    </div>
+            <div class="swiper swiper-container" data-swiper-options='{
+                  "slidesPerView": 1,
+                  "spaceBetween": 15,
+                  "loop": true,
+                  "centeredSlides": true,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                    },
+                  "navigation": {
+                    "nextEl": ".swiper-next-02",
+                    "prevEl": ".swiper-prev-02"
+                  },
+                  "autoplay": {
+                    "delay": 3500,
+                    "disableOnInteraction": false
+                  },
+                  "breakpoints": {
+                    "600": {
+                      "slidesPerView": 2
+                    },
+                    "991": {
+                      "slidesPerView": 3
+                    },
+                    "1200": {
+                      "slidesPerView": 3
+                    }
+                  }
+                }'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/girl.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-10">
+                                    <div class="col-lg-8 text-center">
+                                        <h3 class="text-uppercase text-white ">Girls Wear</h3>
+                                            <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/boy.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class="bg- px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-white text-uppercase mb-3">Boys Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/girlparty.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Girls Party Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/boyparty.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Boys Party Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/foot.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Foot Wear</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/toy.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class="px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-white">Toys</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                </div>
+                                           
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-arrow-style-01 swiper-next swiper-next-02"><i class="bi bi-chevron-right"></i> </div>
+                <div class="swiper-arrow-style-01 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
+            </div>
+              </br>
+              <section class="section">
                 <div class="container">
                     <div class="row justify-content-center section-heading">
                         <div class="col-lg-6 text-center">
@@ -351,15 +732,16 @@
                                     <div class="product-card-1">
                                         <div class="product-card-image">
                                            <div class="product-media">
-                                                <a href="#">
+                                           <a href="">
                                                     <img class="img-fluid" src="{{asset('customer/img/frontimage/f2.jpg')}}" title="" alt="">
                                                 </a>
-                                                <h5 class="product-title" align="center">Nawalapitiya</h5> 
+                                             <h5 class="product-title" align="center">Nawalapitiya</h5> 
                                            </div>
                                         </div>
-                                        <div class="product-card-info">
-                                            <p>NO:43, KOTHMALE ROAD, NAWALAPITIYA.</p>
+                                        <div class="product-card-info" style="background:#98AFC7;">
+                                            <p><strong>NO:43, KOTHMALE ROAD, NAWALAPITIYA.</strong></p>
                                             <p><strong>0542222143</strong></p>
+                                            <a href="https://goo.gl/maps/disXUW1Y5vb6hN76A"><h3><i class="bi bi-geo-alt-fill center"style=color:blue></i></h3></a>
                                         </div>
                                      </div>
                                 </div>
@@ -367,15 +749,17 @@
                                     <div class="product-card-1">
                                         <div class="product-card-image">
                                            <div class="product-media">
-                                                <a href="#">
+                                                <a href="">
                                                     <img class="img-fluid" src="{{asset('customer/img/frontimage/f2.jpg')}}" title="" alt="">
                                                 </a>
-                                                <h5 class="product-title" align="center">Gampola</h5> 
+                                              <h5 class="product-title" align="center">Gampola</h5>
+                                                 
                                            </div>
                                         </div>
-                                        <div class="product-card-info">
-                                            <p>NO:36, STATION ROAD,<br>GAMPOLA.</p>
+                                        <div class="product-card-info" style="background:#98AFC7;">
+                                            <p><strong>NO:36, STATION ROAD,<br>GAMPOLA.</strong></p>
                                             <p><strong>0812350970</strong></p>
+                                            <a href="https://goo.gl/maps/Xd82y2PFcafrL6Be8"><h3><i class="bi bi-geo-alt-fill center"style=color:blue></i></h3></a>
                                         </div>
                                      </div>
                                 </div>
@@ -389,9 +773,10 @@
                                                 <h5 class="product-title" align="center">Matale</h5> 
                                            </div>
                                         </div>
-                                        <div class="product-card-info">
-                                            <p>NO:131, MAIN STREET,<br> MATALE.</p>
+                                        <div class="product-card-info" style="background:#98AFC7;">
+                                            <p><strong>NO:131, MAIN STREET,<br> MATALE.</strong></p>
                                             <p><strong>066-222296</strong></p>
+                                            <a href="https://goo.gl/maps/uGCDfBPRYrqxT6Sm8"><h3><i class="bi bi-geo-alt-fill center"style=color:blue></i></h3></a>
                                         </div>
                                      </div>
                                 </div>
@@ -401,14 +786,15 @@
                                         <div class="product-card-image">
                                            <div class="product-media">
                                                 <a href="#">
-                                                    <img class="img-fluid" src="{{asset('customer/img/frontimage/f2.jpg')}}" title="" alt="">
+                                                    <img class="img-fluid" src="" title="" alt="">
                                                 </a>
                                                 <h5 class="product-title" align="center">Kandy</h5> 
                                            </div>
                                         </div>
-                                        <div class="product-card-info">
-                                            <p>NO:494, PERADENIYA ROAD, KANDY.</p>
+                                        <div class="product-card-info" style="background:#98AFC7;">
+                                            <p><strong>NO:494, PERADENIYA ROAD, KANDY.</strong></p>
                                             <p><strong>081-2224211</strong></p>
+                                            <a href="https://goo.gl/maps/63woDvVk8Awiua1E9"><h3><i class="bi bi-geo-alt-fill center " style=color:blue;></i></h3></a>
                                         </div>
                                      </div>
                                 </div>
@@ -423,9 +809,10 @@
                                                 <h5 class="product-title" align="center">Kurunegala</h5> 
                                            </div>
                                         </div>
-                                        <div class="product-card-info">
-                                            <p>NO:136, COLOMBO ROAD, KURUNEGALA.</p>
+                                        <div class="product-card-info" style="background:#98AFC7;">
+                                            <p><strong>NO:136, COLOMBO ROAD, KURUNEGALA.</strong></p>
                                             <p><strong>037-2052966</strong></p>
+                                            <a href="https://goo.gl/maps/p4XSZLXy8R8jECpG8"><h3><i class="bi bi-geo-alt-fill center"style=color:blue></i></h3></a>
                                         </div>
                                      </div>
                                 </div>
@@ -440,9 +827,10 @@
                                                 <h5 class="product-title" align="center">Polannaruwa</h5> 
                                            </div>
                                         </div>
-                                        <div class="product-card-info">
-                                            <p>NO:171, BATTICALOA ROAD, POLONNARUWA.</p>
+                                        <div class="product-card-info"style="background:#98AFC7;">
+                                            <p><strong>NO:171, BATTICALOA ROAD, POLONNARUWA.</strong></p>
                                             <p><strong>027-2050136</strong></p>
+                                            <a href="https://goo.gl/maps/Lqymqvrp6PcAW3rcA"><h3><i class="bi bi-geo-alt-fill center" style=color:blue></i></h3></a>
                                         </div>
                                      </div>
                                 </div>
@@ -456,71 +844,127 @@
                 </div>
             </section>
 
-
- </br>
-<div class="pt-3">
-                <div class="container-fluid px-0">
-                    <div class="swiper-hover-arrow position-relative">
-                        <div class="swiper swiper-container" data-swiper-options='{
-                            "slidesPerView": 2,
-                            "spaceBetween": 0,
-                            "loop": true,
-                            "pagination": {
-                                "el": ".swiper-pagination",
-                                "clickable": true
-                            },
-                            "navigation": {
-                                "nextEl": ".swiper-next-02",
-                                "prevEl": ".swiper-prev-02"
-                            },
-                            "autoplay": {
-                                "delay": 3500,
-                                "disableOnInteraction": false
-                            },
-                            "breakpoints": {
-                                "600": {
-                                    "slidesPerView": 4
-                                },
-                                "991": {
-                                    "slidesPerView": 4
-                                },
-                                "1200": {
-                                    "slidesPerView": 6
-                                },
-                                "1300": {
-                                    "slidesPerView": 7
-                                }
-                            }
-                        }'>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/moose.png')}}" style="height:100px; width:200px;" title="" alt="">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/vintage.png')}}" style="height:100px; width:200px;" title="" alt="">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand3.jpeg')}}" style="height:100px; width:200px;" title="" alt="">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a class="px-3 px-md-6 py-1 w-100 border float-start" href="#">
-                                        <img class="mx-auto d-block" src="{{asset('customer/img/brand/brand4.jpeg')}}" style="height:100px; width:200px;" title="" alt="">
-                                    </a>
-                                </div>
-                                
-                            </div>
-                            <div class="swiper-pagination mt-4 d-lg-none position-relative"></div>
+            <div class="row justify-content-center section-heading">
+                        <div class="col-lg-6 text-center">
+                            <h3 class="fw-500 h2 m-0">Mother & Baby</h3>
                         </div>
-                        <div class="swiper-arrow-style-02 swiper-next swiper-next-02"><i class="bi bi-chevron-right"></i> </div>
-                        <div class="swiper-arrow-style-02 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
+                    </div>
+            <div class="swiper swiper-container" data-swiper-options='{
+                  "slidesPerView": 1,
+                  "spaceBetween": 15,
+                  "loop": true,
+                  "centeredSlides": true,
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "clickable": true
+                    },
+                  "navigation": {
+                    "nextEl": ".swiper-next-02",
+                    "prevEl": ".swiper-prev-02"
+                  },
+                  "autoplay": {
+                    "delay": 3500,
+                    "disableOnInteraction": false
+                  },
+                  "breakpoints": {
+                    "600": {
+                      "slidesPerView": 2
+                    },
+                    "991": {
+                      "slidesPerView": 3
+                    },
+                    "1200": {
+                      "slidesPerView": 3
+                    }
+                  }
+                }'>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/mother.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-10">
+                                    <div class="col-lg-8 text-center">
+                                        <h3 class="text-uppercase text-dark">Mother Care</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/babycare.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class="bg- px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-dark text-uppercase mb-3">Baby Care</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/baccs.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-dark">Baby Accessories</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/babygift.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-dark">Gift Sets</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-no-repeat bg-cover bg-center mx-1" style="background-image: url({{asset('customer/img/kids/wipes.jpg')}});">
+                            <div class="container">
+                                <div class="row min-vh-75 align-items-center justify-content-center py-12">
+                                    <div class="col-lg-8 text-center">
+                                        <div class=" px-4 py-4 hc-slider-box">
+                                            <h3 class="fw-500 text-uppercase mb-3 text-dark">Diapers <br>& </br>Wipes</h3>
+                                                <div class="pt-2">
+                                                    <a class="btn btn-white btn-sm" href="#">Shop Now</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="swiper-arrow-style-01 swiper-next swiper-next-02"><i class="bi bi-chevron-right"></i> </div>
+                <div class="swiper-arrow-style-01 swiper-prev swiper-prev-02"><i class="bi bi-chevron-left"></i></div>
+                <div class="swiper-pagination swiper-pagination-white"></div>
             </div>
+              </br>
+           <br>
+
                     </main>
 @endsection

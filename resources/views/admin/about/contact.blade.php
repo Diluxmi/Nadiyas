@@ -48,8 +48,8 @@
                         </div>
                         <div class="col-lg-6 my-3">
                             <div class="ratio ratio-16x9">
-                                <iframe src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-                            </div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.6529149730513!2d80.53280461411843!3d7.050008818775945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae3757ca14ac2e1%3A0xf82163f8f8f66e64!2sNadiya&#39;s%20Textile!5e0!3m2!1sen!2slk!4v1677127226340!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                             </div>
                         </div>
                     </div>
                 </div>

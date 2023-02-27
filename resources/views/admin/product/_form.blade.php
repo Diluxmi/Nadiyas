@@ -27,19 +27,19 @@
   </div>
 
   <div class="row">
-      <div class="col-5">{!!Form::text('name',' Product Name')!!}</div>
-      <div class="col-5 ">{!!Form::text('size','Size')!!}</div>
+      <div class="col-6">{!!Form::text('name',' Product Name')!!}</div>
+      <div class="col-6 ">{!!Form::text('size','Size')!!}</div>
   </div>
 </div>
 
 <div class="row">
-<div class="col-5">{!!Form::text('description','Description')!!}</div>
+<div class="col-12">{!!Form::text('description','Description')!!}</div>
 </div>
 
 
 <div class="row">
-    <div class="col-5 ">{!!Form::text('price','price')!!}</div> 
-    <div class="col-5 ">{!!Form::select('colour','Colour',['red'=>'Red','blue'=>'Blue','green'=>'Green','yellow'=>'Yellow','gray'=>'Gray','purple'=>'Purple','black'=>'Black','white'=>'White','pink'=>'Pink',])!!}</div> 
+    <div class="col-6 ">{!!Form::text('price','price')!!}</div> 
+    <div class="col-6 ">{!!Form::select('colour','Colour',['red'=>'Red','blue'=>'Blue','green'=>'Green','yellow'=>'Yellow','gray'=>'Gray','purple'=>'Purple','black'=>'Black','white'=>'White','pink'=>'Pink',])!!}</div> 
 </div>
 
 

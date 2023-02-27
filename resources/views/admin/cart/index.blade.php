@@ -24,6 +24,8 @@
         </div>
         @endif
 
+        
+
             <div class="py-6">
                 <div class="container">
                     <!-- Cart Table -->
@@ -42,20 +44,20 @@
 
 
                             <tbody>
-                               
-                                @foreach($cartItems as $cartItem)
+                               @foreach($cartItems as $cartItem)
                                 <tr>
-                                <td class="text-center product-thumbnail"><img src="{{asset('storage/'.$product->image)}}"  style="height:120px; width:100px;"></td>
-                                    <td class="text-center product-thumbnail"> {{$cartItem->name}}</td>
+                                     <!--<td class="text-center product-thumbnail"><img src=""  style="height:120px; width:100px;"></td>-->
+                        <td class="text-center product-thumbnail"><img src="{{asset('storage/'.App\Models\Product::find($cartItem->id)->image)}}"style="height:120px; width:100px;"></td></td>
+                                     <td class="text-center product-thumbnail"> {{$cartItem->name}}</td>
                                     <td class="text-center product-thumbnail"> Rs.{{$cartItem->price}}</td>
                                     <td class="text-center product-quantity">
                                         <div class="cart-qty d-inline-flex">
                                             <div class="dec qty-btn qty_btn">-</div>
-                                            <input class="cart-qty-input form-control" type="text" name="qtybutton" value="1">
+                                            <input class="cart-qty-input form-control" type="text" name="qtybutton" value="{{$cartItem->quantity}}">
                                             <div class="inc qty-btn qty_btn">+</div>
                                         </div>
                                     </td>
-                                    <td class="text-center product-thumbnail"></td>
+                                    <td class="text-center product-thumbnail">{{$cartItem->price*$cartItem->quantity}}</td>
                                     <td class="product-remove text-end text-nowrap">
                                         
                                     <form action="{{ route('cart.update',$product->id) }}" method="POST" >
@@ -71,7 +73,7 @@
                                     </form>
                                     </td>
                                 </tr>
-                            @endforeach
+                                @endforeach 
                             </tbody>
                         </table>
                     </div>
@@ -80,18 +82,17 @@
                         <div>
                             <a class="btn btn-outline-dark" href="{{route('welcome')}}">
                                 <i class="ci-arrow-left mt-sm-0 me-1"></i>
-                                <span class="d-none d-sm-inline">Continue Shopping</span>
-                                <span class="d-inline d-sm-none">Back</span>
+                                <span class=" d-sm-inline">Continue Shopping</span>
                             </a>
-                        </div>
-                        <div class="ms-auto">
-                            <a class="btn btn-outline-primary" href="#">
-                                <span class="d-none d-sm-inline">Update shopping cart</span>
-                                <span class="d-inline d-sm-none">Next</span>
-                                <i class="ci-arrow-right mt-sm-0 ms-1"></i>
-                            </a>
+                            <form action="{{ route('cart.clear',$product->id) }}" method="POST">
+                            @csrf
+                            <button class="px-6 py-2 text-red-800 text-danger">Remove All Cart</button>
+                          </form>
                         </div>
                     </div>
+                       
+                    
+
                     <div class="row flex-row-reverse pt-4">
                         <div class="col-md-6 col-lg-4">
                             <div class="card">
@@ -100,29 +101,35 @@
                                 </div>
                                 <div class="card-body ">
                                     <ul class="list-unstyled">
+                                    @foreach($cartItems as $cartItem)
                                         <li class="d-flex justify-content-between align-items-center mb-2">
-                                            <h6 class="me-2 text-body">Subtotal</h6><span class="text-end">$265.00</span>
+                                             
+                                           <h6 class="me-2 text-body">Subtotal</h6>{{$cartItem->price*$cartItem->quantity}}<span class="text-end"></span>
                                         </li>
-                                        <li class="d-flex justify-content-between align-items-center mb-2">
-                                            <h6 class="me-2 text-body">Taxes</h6><span class="text-end">$265.00</span>
-                                        </li>
+                                        
                                         <li class="d-flex justify-content-between align-items-center border-top pt-3 mt-3">
-                                            <h6 class="me-2">Grand Total</h6><span class="text-end text-dark">$265.00</span>
+                                            <h6 class="me-2">Grand Total</h6><span class="text-end text-dark"></span>
                                         </li>
+                                        @endforeach    
                                     </ul>
                                     <div class="d-grid gap-2 mx-auto">
-                                        <a class="btn btn-primary" href="checkout-shipping.html">PROCEED TO CHECKOUT</a>
+                                        <a class="btn btn-primary" href="{{route('payment.index')}}">PROCEED TO CHECKOUT</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
+                   
                 </div>
             </div>
-            <!-- Cart Table -->
-        </main>
-    @endsection
+        </div>
+    </div>
+    </div>
+</div>
+         <!-- Cart Table -->
+</main>
+
+@endsection
 
 
  

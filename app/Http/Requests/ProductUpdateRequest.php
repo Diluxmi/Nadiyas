@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class ProductUpdateRequest extends FormRequest
 {
@@ -23,6 +25,7 @@ class ProductUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $product=$this->product;
         return [
         
             'name'                =>    'required',

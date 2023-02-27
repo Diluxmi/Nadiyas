@@ -25,29 +25,23 @@
     </div>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="">
-            <img src="{{asset('customer/img/nadiyas.png')}}" style="width:150px;"title="" alt=""> 
+        <a class="navbar-brand" href="{{route('welcome')}}">
+            <img src="{{asset('customer/img/logo.png')}}" style="width:230px;"title="" alt=""> 
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 <li class="dropdown dropdown-full nav-item"><a href="{{route('welcome')}}" class="nav-link active">Home</a> </li>
-                <li class="dropdown dropdown-full nav-item"> <a href="{{route('about.index')}}" class="nav-link">About</a> </li>
+                
 
     @foreach($departments as $department)
         <li class="dropdown dropdown-full nav-item" >
         <a href="#"   onmouseover="listcategories('{{$department->id}}')" class="nav-link">{{$department->name}}</a>
             <label class="px-dropdown-toggle mob-menu"></label>    
             <div class="dropdown-menu dropdown-mega-menu py-0"><div class="container p-3 p-lg-4">
-                <div class="row gy-4"><div class="col-lg-6"><div id="{{$department->id}}" class="row gy-4">
-            </div>
+                <div class="row gy-4" id="{{$department->id}}"><div class="col-6 col-md-3 col-xl-2">
+                <div class="row gy-4"></div>
         </div> 
-        <div class="col-lg-6 d-flex flex-column"> 
-            <div class="rounded h-100 bg-cover bg-no-repeat d-flex align-items-center justify-content-center py-8 p-xl-5" style="background-image: url({{asset('customer/img/saree.jpg')}});">
-                <div class="w-150 text-center">
-                </br></br></br></br</br><h4>Exclusive Collection</h4></br></br></br>
-                </div>
-            </div>
-        </div>
+      
     </div>
 </div>
 </div>
@@ -87,12 +81,10 @@
 
         @if(Route::has('login'))
         @auth
-        <a class="dropdown-item" href="{{route('customer.index')}}">{{ Auth::user()->customer->name }}</a>
-        <a class="dropdown-item" href="#">Wishlist</a>
-        @csrf
+        <a class="dropdown-item" href="{{route('user.cindex',Auth::user()->customer->id)}}">{{Auth::user()->customer->name}}</a>
+       
         @endauth
         @endif
-                
     </div> 
 </div>
 
