@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\StockController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\SizeController;
+use App\Http\Controllers\Admin\JobController;
+use App\Http\Controllers\Admin\EmployeeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -122,14 +124,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
     });
    
 
-
-
-    Route::group(['prefix'=>'order'],function(){
-        Route::get('/',[OrderController::class,'index'])->name('order.index');
-        Route::get('/cindex',[OrderController::class,'cindex'])->name('order.cindex');
-        Route::get('/create',[OrderController::class,'create'])->name('order.create');
-    });
-
     Route::group(['prefix'=>'about'],function(){
         Route::get('/',[AboutController::class,'index'])->name('about.index');
         Route::get('/index1',[AboutController::class,'index1'])->name('about.index1');
@@ -148,8 +142,6 @@ Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout')
         Route::delete('/destroy',[AboutController::class,'destroy'])->name('about.destroy');
     });
     });
-
-   
 
     Route::group(['prefix'=>'productdetail'],function(){
         Route::get('/',[ProductdetailController::class,'index'])->name('productdetail.index');
@@ -215,23 +207,46 @@ Route::group(['prefix'=>'size'],function(){
     });
 
 });
+Route::group(['prefix'=>'employee'],function(){
+    Route::get('/',[EmployeeController::class,'index'])->name('employee.index');
+    Route::get('/create',[EmployeeController::class,'create'])->name('employee.create');
+    Route::post('/store',[EmployeeController::class,'store'])->name('employee.store');
 
-Route::group(['prefix'=>'stock'],function(){
-    Route::get('/',[StockController::class,'index'])->name('stock.index');
-    Route::get('/create',[StockController::class,'create'])->name('stock.create');
-    Route::post('/store',[StockController::class,'store'])->name('stock.store');
-
-Route::group(['prefix'=>'{stock}'],function(){
-    Route::get('/edit',[StockController::class,'edit'])->name('stock.edit');
-    Route::patch('/update',[StockController::class,'update'])->name('stock.update');
-    Route::get('/delete',[StockController::class,'delete'])->name('stock.delete');
-    Route::delete('/destroy',[StockController::class,'destroy'])->name('stock.destroy');
+Route::group(['prefix'=>'{employee}'],function(){
+    Route::get('/show',[EmployeeController::class,'show'])->name('employee.show');
+    Route::get('/delete',[EmployeeController::class,'delete'])->name('employee.delete');
+    Route::get('/edit',[EmployeeController::class,'edit'])->name('employee.edit');
+    Route::patch('/update',[EmployeeController::class,'update'])->name('employee.update');
+    Route::delete('/destroy',[EmployeeController::class,'destroy'])->name('employee.destroy');
+    
 });
 });
 
-Route::group(['prefix'=>'payment'],function(){
-    Route::get('/',[PaymentController::class,'index'])->name('payment.index');
+Route::group(['prefix'=>'jobs'],function(){
+    Route::get('/',[JobController::class,'index'])->name('job.index');
+    Route::get('/cindex',[JobController::class,'cindex'])->name('job.cindex');
+    Route::get('/create',[JobController::class,'create'])->name('job.create');
+    Route::post('/store',[JobController::class,'store'])->name('job.store');
+
+Route::group(['prefix'=>'{job}'],function(){
+    Route::get('/delete',[JobController::class,'delete'])->name('job.delete');
+    Route::delete('/destroy',[JobController::class,'destroy'])->name('job.destroy');
 });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   

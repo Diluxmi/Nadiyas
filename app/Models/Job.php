@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Cashier\Cashier;
 
-$user = Cashier::findBillable($stripeId);
-class Billable extends Model
+class Job extends Model
 {
     use HasFactory;
-    
+    protected $fillable =[
+        'jobrole',
+        'filename',
+        'actual_filname',
+        'extension'
+    ];
 }

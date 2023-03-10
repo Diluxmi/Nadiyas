@@ -21,13 +21,25 @@ class UserStoreRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    
+        public function rules()
     {
-        
-        return [
-            'email'=>'required|email|unique:users',
-            'password'=>'required|confirmed|string|min:8',
-        ];   
+       return [
+                'title'=>'required',
+                'name'=>'required',
+                'designation'=>'required',
+                'joiningdate'=>'required',
+                'location'=>'required',
+                'phonenumber'=>'required',
+                'email' => 'required|string|email|unique:users|max:255',
+                'password' => 'required|string|min:8|max:255',
+            ];
+        }
+    }
+    
+                  
+
+
       
-}
-}
+
+

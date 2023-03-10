@@ -77,18 +77,18 @@
                                     <img class="img-fluid" src= "{{asset('storage/'.$product->image)}}" style="height:350px; width:400px;" title="" alt="">
                                 </a>
     
-                                <form method="Post" action="{{route('cart.store',$product->id)}}" enctype="multipart/form-data">            
+                             <!--   <form method="Post" action="{{route('cart.store',$product->id)}}" enctype="multipart/form-data">            
                                 <input type="hidden" value="{{ $product->id }}" name="id">
                                 <input type="hidden" value="{{ $product->name }}" name="name">
                                 <input type="hidden" value="{{ $product->price }}" name="price">
                                 <input type="hidden" value ="{{$product->image}}"  name="image">
-                                <input type="hidden" value="1" name="quantity">
+                                <input type="hidden" value="1" name="quantity"> -->
                                 <div class="product-cart-btn">
-                                    <button class="btn btn-primary btn-sm w-100">
-                                    <i class="fi-shopping-cart"></i>Add to cart</button>
+                                    <button class="btn btn-primary btn-sm w-100" onclick="alert('Please login!');">
+                                   <i class="fi-shopping-cart"></i>View Only</button>
                                 </div>
-                                @csrf
-                                </form>
+                            <!--    @csrf
+                                </form>-->
                             </div>
                         </div>
                         <div class="product-card-info">

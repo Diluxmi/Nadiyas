@@ -44,6 +44,9 @@ class HomeController extends Controller
                 return view('welcome',compact('customer','departments','categories','products'));
                 break;
 
+            case 'Employee':
+                return view('home');
+
         }
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class UserUpdateRequest extends FormRequest
 {
@@ -16,24 +18,29 @@ class UserUpdateRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
     public function rules()
     {
-        $customer=$this->customer;
-        $user=$this->customer->user;
-        return [
-            'title'           =>    'required',
-            'name'            =>    'required',
-            'address'         =>    'required',
-            'email'           =>    'required',
-            'image'           =>    'required',
-            'actual_filename' =>    'required',
-            'phonenumber'     =>    'required',
-            'password'        =>    'nullable|confirmed|min:8',
+       
+      $employee=$this->employee->load('user');
+        $user=$employee->user;
+      
+     return [
+                
+                'title'=>'required',
+                'name' =>'required',
+                'designation'=>'required',
+                'joiningdate' =>'required',
+                'location' =>'required',
+                'password' => 'nullable | confirmed | string | min:8',
+                'phonenumber' =>'required',
+                'email' => ['required', 'email', Rule::unique('users')->ignore($user)],
+               
             ];
+           
+        }
+      
+        
     }
-}
+
+
+

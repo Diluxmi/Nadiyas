@@ -24,6 +24,7 @@ class User extends Authenticatable
         'role_id',
         'password',
         'customer_id',
+        'employee_id',
     ];
 
     /**
@@ -53,6 +54,11 @@ class User extends Authenticatable
     public function customer(){
         return $this->belongsTo(Customer::class,'customer_id');
     }
+
+    public function employee(){
+        return $this->belongsTo(Employee::class,'employee_id');
+    }
+   
 
    
 }

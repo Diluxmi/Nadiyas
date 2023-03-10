@@ -121,7 +121,7 @@
                                     <div class="col-lg-8 text-center">
                                         <h3 class="text-uppercase text-white ">Formal Wear</h3>
                                                 <div class="pt-2">
-                                                    <a class="btn btn-white btn-sm" href="#">View Now</a>
+                                                    <a class="btn btn-white btn-sm" href="">View Now</a>
                                                 </div>
                                     </div>
                                 </div>

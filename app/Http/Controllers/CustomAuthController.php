@@ -25,6 +25,7 @@ class CustomAuthController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
+            'employee_id' => ['required', 'string', 'max:25'],
         ]);
    
         $credentials = $request->only('email', 'password');
@@ -44,8 +45,7 @@ class CustomAuthController extends Controller
       
     public function customRegistration(Request $request)
     {  
-    
-            $request->validate([
+         $request->validate([
                 'title'=>'required',
                 'name' => ['required', 'string', 'max:255'],
                 'address' => ['required', 'string', 'max:255'],
@@ -54,6 +54,7 @@ class CustomAuthController extends Controller
                 'actual_filename'=>['nullable','string'],
                 'phonenumber' =>['required','regex:/^([0-9\s\-\+\(\)]*)$/','min:10'], /// meaning of regex
                 'password' => ['required','confirmed'],
+                
             ]);
     
     
@@ -63,10 +64,13 @@ class CustomAuthController extends Controller
                 'name' => $request->name,
                 'address'  =>$request->address,
                 'phonenumber' =>$request->phonenumber,
+                
                  // not in customer table    
     
                  
             ]);
+
+           
     
             $user = User::create([
                 'role_id'=>2,

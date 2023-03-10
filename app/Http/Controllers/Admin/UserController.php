@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Customer;
-use App\MOdels\Department;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+
 
 class UserController extends Controller
 {

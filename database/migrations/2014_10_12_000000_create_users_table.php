@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('customer_id')->nullable();
+            $table->foreignId('employee_id')->nullable();
 
 
             $table->rememberToken();
@@ -28,6 +29,7 @@ return new class extends Migration
    
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
 

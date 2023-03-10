@@ -77,6 +77,7 @@
                         <h6 class="text-white text-uppercase mb-5">Support</h6>
                         <ul class="list-unstyled white-link footer-link-1 m-0">
                             <li class="pb-2"><a href="{{route('about.help')}}">Help</a></li>
+                            <li class="pb-2"><a href="{{route('job.cindex')}}">Career</a></li> 
                            
                             </ul></div><div class="col-sm-6 col-lg-2 my-3">
                             <h6 class="text-white text-uppercase mb-5">Policies</h6>
